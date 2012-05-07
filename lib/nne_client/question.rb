@@ -15,6 +15,8 @@ module NNEClient
       end
     end
 
+    private
+
     def query(attribute, type)
       if @query_hash[attribute]
         @xml.tag!(attribute, @query_hash[attribute], 'xsi:type' => "xsd:#{type}")

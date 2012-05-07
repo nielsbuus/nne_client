@@ -7,11 +7,13 @@ module NNEClient
 
     def render
       Question.new(@query_hash, @xml).render
-      @xml.int_2(hits_per_page, 'xsi:type' => "xsd:int")
-      @xml.int_3(wanted_page_number, 'xsi:type' => "xsd:int")
-      @xml.int_4(include_ad_protected, 'xsi:type' => "xsd:int")
-      @xml.String_5(nil, 'xsi:type' => "xsd:string")
+      tag(:int_2, hits_per_page, :int)
+      tag(:int_3, wanted_page_number, :int)
+      tag(:int_4, include_ad_protected, :int)
+      tag(:String_5, nil, :string)
     end
+
+    private
 
     def include_ad_protected
       @query_hash[:includeAdProtected] || 0
@@ -23,6 +25,10 @@ module NNEClient
 
     def wanted_page_number
       @query_hash[:wantedPageNumber] || 1
+    end
+
+    def tag(attribute, value, type)
+      @xml.tag!(attribute, value, 'xsi:type' => "xsd:#{type}")
     end
   end
 end
