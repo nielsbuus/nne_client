@@ -20,7 +20,7 @@ Or install it yourself as:
 
 Searching for a company:
 
-    result_set = NNEClient.search('Lokalebasen')
+    result_set = NNEClient.search(:name => 'Lokalebasen')
     result_set.first.companyname
       => "Lokalebasen.dk A/S"
 

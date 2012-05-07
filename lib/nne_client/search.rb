@@ -1,16 +1,16 @@
 module NNEClient
   class Search
-    def initialize(name)
+    def initialize(query)
       @wsdl_url = 'http://service.nnerhverv.dk/nne-ws/3.1/NNE?WSDL'
-      @name = name
+      @query = query
     end
 
     def result_set
-      name = @name
+      search = self
       result = client.request('wsdl', 'search', request_attributes) do
         soap.body do |xml|
-          xml.Question_1(question_attributes) do
-            xml.name(name, 'xsi:type' => "xsd:string")
+          xml.Question_1(question_attributes) do |xml|
+            search.query(xml)
           end
           xml.int_2(10, 'xsi:type' => "xsd:int")
           xml.int_3(1, 'xsi:type' => "xsd:int")
@@ -19,6 +19,10 @@ module NNEClient
         end
       end
       ResultSet.new(result)
+    end
+
+    def query(xml)
+      Query.new(@query, xml).render
     end
 
     def client
