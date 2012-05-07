@@ -13,6 +13,6 @@ Gem::Specification.new do |gem|
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.name          = "nne_client"
   gem.require_paths = ["lib"]
-  gem.version       = NneClient::VERSION
+  gem.version       = NNEClient::VERSION
   gem.add_dependency('savon', '~> 0.9.9')
 end
