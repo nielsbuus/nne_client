@@ -13,7 +13,7 @@ module NNEClient
       result = client.request('wsdl', 'search', request_attributes) do
         soap.body do |xml|
           xml.Question_1(question_attributes) do |xml|
-            search.query(xml)
+            search.question(xml)
           end
           xml.int_2(search.hits_per_page, 'xsi:type' => "xsd:int")
           xml.int_3(search.wanted_page_number, 'xsi:type' => "xsd:int")
@@ -32,8 +32,8 @@ module NNEClient
       1
     end
 
-    def query(xml)
-      Query.new(@query, xml).render
+    def question(xml)
+      Question.new(@query, xml).render
     end
 
     def client
