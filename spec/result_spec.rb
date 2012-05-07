@@ -32,6 +32,21 @@ describe NNEClient::Result do
   its(:zip_code)      { should == result_hash[:zip_code] }
   its(:ad_protection) { should == result_hash[:ad_protection] }
 
+  context "with extended info" do
+    around(:each) do |example|
+      VCR.use_cassette('result_extended_info', :match_requests_on => [:body]) do
+        example.run
+      end
+    end
+
+    its(:email) { should == 'jacob@incremental.dk' }
+    its(:homepage) { should be_nil }
+    its(:founded_year) { should == '2009' }
+    its(:number_of_employees) { should == '0' }
+    its(:tdf_name) { should == 'Incremental' }
+    its(:status_text) { should == 'Selskabet er i normal drift.' }
+  end
+
   it "knows all names" do
     VCR.use_cassette('result_names', :match_requests_on => [:body]) do
       result = NNEClient::Result.new(:official_name => 'Name', :tdc_id => '100323228')
