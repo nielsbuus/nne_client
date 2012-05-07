@@ -6,11 +6,13 @@ module NNEClient
     end
 
     def render
-      query(:houseNo, :string)
-      query(:name, :string)
-      query(:nameStartsWith, :boolean)
-      query(:street, :string)
-      query(:zipCode, :int)
+      @xml.Question_1(question_attributes) do
+        query(:houseNo, :string)
+        query(:name, :string)
+        query(:nameStartsWith, :boolean)
+        query(:street, :string)
+        query(:zipCode, :int)
+      end
     end
 
     def query(attribute, type)
@@ -18,5 +20,13 @@ module NNEClient
         @xml.tag!(attribute, @query_hash[attribute], 'xsi:type' => "xsd:#{type}")
       end
     end
+
+    def question_attributes
+      {
+        'xmlns:nne' => "http://com.stibo.net/nne/3.1/Types/NNE",
+        'xsi:type' => "nne:Question"
+      }
+    end
+
   end
 end

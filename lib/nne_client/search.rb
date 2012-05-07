@@ -12,9 +12,7 @@ module NNEClient
       search = self
       result = client.request('wsdl', 'search', request_attributes) do
         soap.body do |xml|
-          xml.Question_1(question_attributes) do |xml|
-            search.question(xml)
-          end
+          search.question(xml)
           xml.int_2(search.hits_per_page, 'xsi:type' => "xsd:int")
           xml.int_3(search.wanted_page_number, 'xsi:type' => "xsd:int")
           xml.int_4(search.include_ad_protected, 'xsi:type' => "xsd:int")
@@ -38,13 +36,6 @@ module NNEClient
 
     def client
       @client ||= Savon::Client.new(@wsdl_url)
-    end
-
-    def question_attributes
-      {
-        'xmlns:nne' => "http://com.stibo.net/nne/3.1/Types/NNE",
-        'xsi:type' => "nne:Question"
-      }
     end
 
     def request_attributes
