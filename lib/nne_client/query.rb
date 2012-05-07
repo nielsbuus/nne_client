@@ -16,7 +16,7 @@ module NNEClient
     private
 
     def include_ad_protected
-      @query_hash[:includeAdProtected] || 0
+      @query_hash[:includeAdProtected] ? 1 : 0
     end
 
     def hits_per_page
