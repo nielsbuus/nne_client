@@ -1,8 +1,11 @@
 module NNEClient
   class Search
+    attr_accessor :include_ad_protected
+
     def initialize(query)
       @wsdl_url = 'http://service.nnerhverv.dk/nne-ws/3.1/NNE?WSDL'
       @query = query
+      @include_ad_protected = 0
     end
 
     def result_set
@@ -12,13 +15,21 @@ module NNEClient
           xml.Question_1(question_attributes) do |xml|
             search.query(xml)
           end
-          xml.int_2(10, 'xsi:type' => "xsd:int")
-          xml.int_3(1, 'xsi:type' => "xsd:int")
-          xml.int_4(0, 'xsi:type' => "xsd:int")
+          xml.int_2(search.hits_per_page, 'xsi:type' => "xsd:int")
+          xml.int_3(search.wanted_page_number, 'xsi:type' => "xsd:int")
+          xml.int_4(search.include_ad_protected, 'xsi:type' => "xsd:int")
           xml.String_5(nil, 'xsi:type' => "xsd:string")
         end
       end
       ResultSet.new(result)
+    end
+
+    def hits_per_page
+      10
+    end
+
+    def wanted_page_number
+      1
     end
 
     def query(xml)
