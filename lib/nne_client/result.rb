@@ -10,7 +10,7 @@ module NNEClient
 
     def additional_names
       result = Fetch.new(tdc_id, 'fetchCompanyAdditionalNames').result_set.to_hash
-      result[:array_ofstring][:item]
+      result[:array_ofstring][:item] || []
     end
 
     private
