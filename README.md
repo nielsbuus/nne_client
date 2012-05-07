@@ -18,7 +18,11 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Searching for a company:
+
+    result_set = NNEClient.search('Lokalebasen')
+    result_set.first.companyname
+      => "Lokalebasen.dk A/S"
 
 ## Contributing
 
