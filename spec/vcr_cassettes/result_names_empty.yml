@@ -23,7 +23,7 @@ http_interactions:
       server: 
       - Microsoft-IIS/6.0
       date: 
-      - Mon, 07 May 2012 14:45:53 GMT
+      - Mon, 07 May 2012 15:17:46 GMT
     body: 
       string: |-
         <?xml version="1.0" encoding="UTF-8"?>
@@ -666,12 +666,12 @@ http_interactions:
             <port name="NNE_PortTypePort" binding="tns:NNE_PortTypeBinding">
               <soap:address xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" location="http://service.nnerhverv.dk:80/nne-ws/3.1/NNE"/></port></service></definitions>
     http_version: "1.1"
-  recorded_at: Mon, 07 May 2012 14:45:54 GMT
+  recorded_at: Mon, 07 May 2012 15:17:46 GMT
 - request: 
     method: post
     uri: http://service.nnerhverv.dk/nne-ws/3.1/NNE
     body: 
-      string: <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:wsdl="http://com.stibo.net/nne/3.1/NNE" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ins0="http://com.stibo.net/nne/3.1/Types/NNE" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"><env:Body><wsdl:fetchCompanyAdditionalNames env:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"><int_1 xsi:type="xsd:int">202541543</int_1></wsdl:fetchCompanyAdditionalNames></env:Body></env:Envelope>
+      string: <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:wsdl="http://com.stibo.net/nne/3.1/NNE" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ins0="http://com.stibo.net/nne/3.1/Types/NNE" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"><env:Body><wsdl:fetchCompanyAdditionalNames env:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"><int_1 xsi:type="xsd:int">202541543</int_1><int_2 xsi:type="xsd:int">0</int_2><String_3 xsi:type="xsd:string"></String_3><String_4 xsi:type="xsd:string"></String_4></wsdl:fetchCompanyAdditionalNames></env:Body></env:Envelope>
     headers: 
       accept: 
       - "*/*"
@@ -680,7 +680,7 @@ http_interactions:
       soapaction: 
       - "\"fetchCompanyAdditionalNames\""
       content-length: 
-      - "513"
+      - "634"
   response: 
     status: 
       code: 200
@@ -697,10 +697,10 @@ http_interactions:
       server: 
       - Microsoft-IIS/6.0
       date: 
-      - Mon, 07 May 2012 14:45:53 GMT
+      - Mon, 07 May 2012 15:17:46 GMT
     body: 
       string: |-
         <?xml version="1.0" encoding="UTF-8"?>
         <env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:ns0="http://com.stibo.net/nne/3.1/Types/NNE" env:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"><env:Body><ans1:fetchCompanyAdditionalNamesResponse xmlns:ans1="http://com.stibo.net/nne/3.1/NNE"><result href="#ID1"/></ans1:fetchCompanyAdditionalNamesResponse><ns0:ArrayOfstring id="ID1" xsi:type="enc:Array" enc:arrayType="xsd:string[0]"/></env:Body></env:Envelope>
     http_version: "1.1"
-  recorded_at: Mon, 07 May 2012 14:45:54 GMT
+  recorded_at: Mon, 07 May 2012 15:17:47 GMT

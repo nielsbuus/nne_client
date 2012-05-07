@@ -23,7 +23,7 @@ http_interactions:
       server: 
       - Microsoft-IIS/6.0
       date: 
-      - Mon, 07 May 2012 11:38:13 GMT
+      - Mon, 07 May 2012 15:17:46 GMT
     body: 
       string: |-
         <?xml version="1.0" encoding="UTF-8"?>
@@ -666,7 +666,7 @@ http_interactions:
             <port name="NNE_PortTypePort" binding="tns:NNE_PortTypeBinding">
               <soap:address xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" location="http://service.nnerhverv.dk:80/nne-ws/3.1/NNE"/></port></service></definitions>
     http_version: "1.1"
-  recorded_at: Mon, 07 May 2012 11:38:14 GMT
+  recorded_at: Mon, 07 May 2012 15:17:47 GMT
 - request: 
     method: post
     uri: http://service.nnerhverv.dk/nne-ws/3.1/NNE
@@ -697,10 +697,10 @@ http_interactions:
       server: 
       - Microsoft-IIS/6.0
       date: 
-      - Mon, 07 May 2012 11:38:14 GMT
+      - Mon, 07 May 2012 15:17:47 GMT
     body: 
       string: |-
         <?xml version="1.0" encoding="UTF-8"?>
         <env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:ns0="http://com.stibo.net/nne/3.1/Types/NNE" env:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"><env:Body><ans1:searchResponse xmlns:ans1="http://com.stibo.net/nne/3.1/NNE"><result href="#ID1"/></ans1:searchResponse><ns0:Answer id="ID1" xsi:type="ns0:Answer"><companyBasic href="#ID2"/><errorMessage xsi:type="xsd:string" xsi:nil="1"/><window href="#ID3"/></ns0:Answer><ns0:ArrayOfCompanyBasic id="ID2" xsi:type="enc:Array" enc:arrayType="ns0:CompanyBasic[1]"><item href="#ID4"/></ns0:ArrayOfCompanyBasic><ns0:Window id="ID3" xsi:type="ns0:Window"><currentPage xsi:type="xsd:int">1</currentPage><from xsi:type="xsd:int">1</from><to xsi:type="xsd:int">1</to><total xsi:type="xsd:int">1</total><totalPages xsi:type="xsd:int">1</totalPages></ns0:Window><ns0:CompanyBasic id="ID4" xsi:type="ns0:CompanyBasic"><PNo xsi:type="xsd:int">1014650942</PNo><adProtection xsi:type="xsd:int">0</adProtection><companyId xsi:type="xsd:int">162972752</companyId><companyType xsi:type="xsd:string">VI</companyType><cvrNo xsi:type="xsd:int">31627877</cvrNo><district xsi:type="xsd:string">Hellerup</district><fax xsi:type="xsd:string" xsi:nil="1"/><officialName xsi:type="xsd:string">Lokalebasen.DK A/S</officialName><phone xsi:type="xsd:string">70200814</phone><street xsi:type="xsd:string">Strandvejen 171</street><tdcId xsi:type="xsd:int">202458978</tdcId><zipCode xsi:type="xsd:int">2900</zipCode></ns0:CompanyBasic></env:Body></env:Envelope>
     http_version: "1.1"
-  recorded_at: Mon, 07 May 2012 11:38:14 GMT
+  recorded_at: Mon, 07 May 2012 15:17:47 GMT
