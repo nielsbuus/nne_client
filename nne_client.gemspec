@@ -15,4 +15,7 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
   gem.version       = NNEClient::VERSION
   gem.add_dependency('savon', '~> 0.9.9')
+  gem.add_development_dependency('vcr')
+  gem.add_development_dependency('fakeweb')
+  gem.add_development_dependency('rspec')
 end
