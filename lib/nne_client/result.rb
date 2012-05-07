@@ -4,7 +4,7 @@ module NNEClient
       @result_hash = result_hash
     end
 
-    def company_name
+    def official_name
       @result_hash[:official_name]
     end
   end

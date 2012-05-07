@@ -21,7 +21,7 @@ Or install it yourself as:
 Searching for a company:
 
     result_set = NNEClient.search(:name => 'Lokalebasen')
-    result_set.first.companyname
+    result_set.first.official_name
       => "Lokalebasen.dk A/S"
 
 ## Contributing
