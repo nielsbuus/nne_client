@@ -1,6 +1,37 @@
 require 'spec_helper'
 
 describe NNEClient::Result do
+
+  let(:result_hash) do
+    {
+      :p_no          => "1015150161",
+      :fax           => {:"@xsi:type" => "xsd:string"},
+      :ad_protection => "0",
+      :tdc_id        => "202541543",
+      :"@xsi:type"   => "ns0:CompanyBasic",
+      :phone         => "26256502",
+      :company_id    => "4218680",
+      :official_name => "Incremental V/ Jacob Atzen",
+      :street        => "Bygmestervej 47 3 tv",
+      :zip_code      => "2400",
+      :company_type  => "PL",
+      :@id           => "ID4",
+      :cvr_no        => "31999529",
+      :district      => "København NV"
+    }
+  end
+
+  subject { NNEClient::Result.new(result_hash) }
+
+  its(:cvr_no)        { should == result_hash[:cvr_no] }
+  its(:p_no)          { should == result_hash[:p_no] }
+  its(:district)      { should == result_hash[:district] }
+  its(:official_name) { should == result_hash[:official_name] }
+  its(:phone)         { should == result_hash[:phone] }
+  its(:street)        { should == result_hash[:street] }
+  its(:zip_code)      { should == result_hash[:zip_code] }
+  its(:ad_protection) { should == result_hash[:ad_protection] }
+
   it "knows all names" do
     VCR.use_cassette('result_names', :match_requests_on => [:body]) do
       result = NNEClient::Result.new(:official_name => 'Name', :tdc_id => '100323228')
