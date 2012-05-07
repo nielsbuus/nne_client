@@ -5,27 +5,35 @@ module NNEClient
       @name = name
     end
 
-    def result
+    def result_set
       name = @name
-      result = client.request('wsdl', 'search',
-                              "env:encodingStyle" => "http://schemas.xmlsoap.org/soap/encoding/") do
+      result = client.request('wsdl', 'search', request_attributes) do
         soap.body do |xml|
-          xml.Question_1('xmlns:nne' => "http://com.stibo.net/nne/3.1/Types/NNE",
-                         'xsi:type' => "nne:Question") do
+          xml.Question_1(question_attributes) do
             xml.name(name, 'xsi:type' => "xsd:string")
           end
-
           xml.int_2(10, 'xsi:type' => "xsd:int")
           xml.int_3(1, 'xsi:type' => "xsd:int")
           xml.int_4(0, 'xsi:type' => "xsd:int")
           xml.String_5(nil, 'xsi:type' => "xsd:string")
         end
       end
-      result.to_hash
+      ResultSet.new(result)
     end
 
     def client
       @client ||= Savon::Client.new(@wsdl_url)
+    end
+
+    def question_attributes
+      {
+        'xmlns:nne' => "http://com.stibo.net/nne/3.1/Types/NNE",
+        'xsi:type' => "nne:Question"
+      }
+    end
+
+    def request_attributes
+      { "env:encodingStyle" => "http://schemas.xmlsoap.org/soap/encoding/" }
     end
   end
 end
