@@ -33,6 +33,15 @@ module NNEClient
       result[:array_ofstring][:item] || []
     end
 
+    def trades
+      trades = Fetch.new(tdc_id, 'fetchCompanyTrade').result_set.to_hash[:trade]
+      if trades.kind_of?(Hash)
+        [Trade.new(trades)]
+      else
+        trades.map{|trade| Trade.new(trade) }
+      end
+    end
+
     private
 
     def extended_attributes

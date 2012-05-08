@@ -47,6 +47,24 @@ describe NNEClient::Result do
     its(:status_text)         { should == 'Selskabet er i normal drift.' }
   end
 
+  context "with trades" do
+    around(:each) do |example|
+      VCR.use_cassette('result_trades', :match_requests_on => [:soap_body_matcher]) do
+        example.run
+      end
+    end
+
+    its(:trades) {
+      should eq [
+        NNEClient::Trade.new(
+          :primary => true,
+          :trade => 'Konsulentbistand vedrørende informationsteknologi',
+          :trade_code => '620200'
+        )
+      ]
+    }
+  end
+
   it "knows all names" do
     VCR.use_cassette('result_names', :match_requests_on => [:soap_body_matcher]) do
       result = NNEClient::Result.new(:official_name => 'Name', :tdc_id => '100323228')
