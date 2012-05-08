@@ -1,5 +1,6 @@
 require 'savon'
 require "nne_client/version"
+require "nne_client/result_attributes"
 require "nne_client/fetch"
 require "nne_client/request"
 require "nne_client/search"
