@@ -1,8 +1,15 @@
 module NNEClient
+
+  # The Result is used to represent a single result from a result set. It can
+  # be seen roughly as an NNE CompanyBasic object. It provides transparent
+  # loading of attributes from the NNE Company object. It also provides methods
+  # for navigating the API further.
   class Result
     class << self
       # Basic attributes are attributes returned by NNE on the
       # CompanyBasic object
+      #
+      # @!visibility private
       def basic_attributes(*attrs)
         attrs.each do |attr|
           define_method(attr) { @result_hash[attr] }
@@ -11,6 +18,8 @@ module NNEClient
 
       # Extended attributes are attributes returned by NNE on the
       # Company object
+      #
+      # @!visibility private
       def extended_attributes(*attrs)
         attrs.each do |attr|
           define_method(attr) { extended_attributes[attr] }
@@ -18,21 +27,38 @@ module NNEClient
       end
     end
 
+    # @!visibility private
     def initialize(result_hash)
       @result_hash = result_hash
     end
 
+    # @!attribute [r] cvr_no
+    # @!attribute [r] p_no
+    # @!attribute [r] district
+    # @!attribute [r] phone
+    # @!attribute [r] street
+    # @!attribute [r] zip_code
+    # @!attribute [r] official_name
+    # @!attribute [r] ad_protection
     basic_attributes :cvr_no, :p_no, :district, :phone, :street, :zip_code,
                      :official_name, :ad_protection
 
+    # @!attribute [r] email
+    # @!attribute [r] homepage
+    # @!attribute [r] founded_year
+    # @!attribute [r] number_of_employees
+    # @!attribute [r] tdf_name
+    # @!attribute [r] status_text
     extended_attributes :email, :homepage, :founded_year,
                         :number_of_employees, :tdf_name, :status_text
 
+    # List of additional_names
     def additional_names
       result = Fetch.new(tdc_id, 'fetchCompanyAdditionalNames').result_set.to_hash
       result[:array_ofstring][:item] || []
     end
 
+    # List of trades
     def trades
       trades = Fetch.new(tdc_id, 'fetchCompanyTrade').result_set.to_hash[:trade]
       if trades.kind_of?(Hash)
@@ -42,6 +68,7 @@ module NNEClient
       end
     end
 
+    # List of associates
     def associates
       subsidiaries = fetch_associates
       if subsidiaries.kind_of?(Hash)
@@ -51,6 +78,7 @@ module NNEClient
       end
     end
 
+    # List of ownerships
     def ownerships
       ownerships = fetch_ownerships
       if ownerships.kind_of?(Hash)
@@ -60,6 +88,7 @@ module NNEClient
       end
     end
 
+    # List of subsidiaries
     def subsidiaries
       subsidiaries = fetch_subsidiaries
       if subsidiaries.kind_of?(Hash)
@@ -69,6 +98,7 @@ module NNEClient
       end
     end
 
+    # List of finance records
     def finances
       finances = fetch_finances
       if finances.kind_of?(Hash)
