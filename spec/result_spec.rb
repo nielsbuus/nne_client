@@ -121,6 +121,24 @@ describe NNEClient::Result do
     }
   end
 
+  context "with multiple ownership" do
+    around(:each) do |example|
+      VCR.use_cassette('result_multiple_ownerships', :match_requests_on => [:soap_body_matcher]) do
+        example.run
+      end
+    end
+
+    subject { NNEClient.search(:tdcId => '100319964').first }
+
+    its(:ownerships) {
+      should include NNEClient::Ownership.new(
+        :share => '33 ',
+        :name => 'Henrik Harald Halberg',
+        :country => nil
+      )
+    }
+  end
+
   it "knows all names" do
     VCR.use_cassette('result_names', :match_requests_on => [:soap_body_matcher]) do
       result = NNEClient::Result.new(:official_name => 'Name', :tdc_id => '100323228')
