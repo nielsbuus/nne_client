@@ -43,7 +43,7 @@ module NNEClient
     end
 
     def ownerships
-      ownerships = Fetch.new(tdc_id, 'fetchCompanyOwnership').result_set.to_hash[:ownership]
+      ownerships = fetch_ownerships
       if ownerships.kind_of?(Hash)
         [Ownership.new(ownerships)]
       else
@@ -52,6 +52,10 @@ module NNEClient
     end
 
     private
+
+    def fetch_ownerships
+      Fetch.new(tdc_id, 'fetchCompanyOwnership').result_set.to_hash[:ownership] || []
+    end
 
     def extended_attributes
       @extended_attributes ||= fetch_extended_attributes

@@ -91,6 +91,18 @@ describe NNEClient::Result do
     }
   end
 
+  context "with no ownership information" do
+    around(:each) do |example|
+      VCR.use_cassette('result_no_ownerships', :match_requests_on => [:soap_body_matcher]) do
+        example.run
+      end
+    end
+
+    subject { NNEClient::Result.new(result_hash) }
+
+    its(:ownerships) { should be_empty }
+  end
+
   context "with single ownership" do
     around(:each) do |example|
       VCR.use_cassette('result_single_ownership', :match_requests_on => [:soap_body_matcher]) do
