@@ -12,6 +12,7 @@ module NNEClient
         query(:nameStartsWith, :boolean)
         query(:street, :string)
         query(:zipCode, :int)
+        query(:tdcId, :int)
       end
     end
 
