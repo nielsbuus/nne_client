@@ -22,3 +22,8 @@ VCR.configure do |c|
   end
 end
 
+def soap_vcr(cassette_name)
+  VCR.use_cassette(cassette_name, :match_requests_on => [:soap_body_matcher]) do
+    yield
+  end
+end

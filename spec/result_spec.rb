@@ -34,7 +34,7 @@ describe NNEClient::Result do
 
   context "with extended info" do
     around(:each) do |example|
-      VCR.use_cassette('result_extended_info', :match_requests_on => [:soap_body_matcher]) do
+      soap_vcr('result_extended_info') do
         example.run
       end
     end
@@ -49,7 +49,7 @@ describe NNEClient::Result do
 
   context "with a single trade" do
     around(:each) do |example|
-      VCR.use_cassette('result_trades', :match_requests_on => [:soap_body_matcher]) do
+      soap_vcr('result_trades') do
         example.run
       end
     end
@@ -67,7 +67,7 @@ describe NNEClient::Result do
 
   context "with multiple trades" do
     around(:each) do |example|
-      VCR.use_cassette('result_multiple_trades', :match_requests_on => [:soap_body_matcher]) do
+      soap_vcr('result_multiple_trades') do
         example.run
       end
     end
@@ -93,7 +93,7 @@ describe NNEClient::Result do
 
   context "with no ownership information" do
     around(:each) do |example|
-      VCR.use_cassette('result_no_ownerships', :match_requests_on => [:soap_body_matcher]) do
+      soap_vcr('result_no_ownerships') do
         example.run
       end
     end
@@ -105,7 +105,7 @@ describe NNEClient::Result do
 
   context "with single ownership" do
     around(:each) do |example|
-      VCR.use_cassette('result_single_ownership', :match_requests_on => [:soap_body_matcher]) do
+      soap_vcr('result_single_ownership') do
         example.run
       end
     end
@@ -123,7 +123,7 @@ describe NNEClient::Result do
 
   context "with multiple ownership" do
     around(:each) do |example|
-      VCR.use_cassette('result_multiple_ownerships', :match_requests_on => [:soap_body_matcher]) do
+      soap_vcr('result_multiple_ownerships') do
         example.run
       end
     end
@@ -140,7 +140,7 @@ describe NNEClient::Result do
   end
 
   it "knows all names" do
-    VCR.use_cassette('result_names', :match_requests_on => [:soap_body_matcher]) do
+    soap_vcr('result_names') do
       result = NNEClient::Result.new(:official_name => 'Name', :tdc_id => '100323228')
       result.additional_names.should == [
         "Tv Holbæk A/S",
@@ -153,7 +153,7 @@ describe NNEClient::Result do
   end
 
   it "is an empty array if no additinal names present" do
-    VCR.use_cassette('result_names_empty', :match_requests_on => [:soap_body_matcher]) do
+    soap_vcr('result_names_empty') do
       result = NNEClient::Result.new(:official_name => 'Name', :tdc_id => '202541543')
       result.additional_names.should == []
     end
