@@ -42,6 +42,15 @@ module NNEClient
       end
     end
 
+    def associates
+      subsidiaries = fetch_associates
+      if subsidiaries.kind_of?(Hash)
+        [Subsidiary.new(subsidiaries)]
+      else
+        subsidiaries.map{|subsidiary| Subsidiary.new(subsidiary) }
+      end
+    end
+
     def ownerships
       ownerships = fetch_ownerships
       if ownerships.kind_of?(Hash)
@@ -70,6 +79,10 @@ module NNEClient
     end
 
     private
+
+    def fetch_associates
+      Fetch.new(tdc_id, 'fetchCompanyAssociates').result_set.to_hash[:subsidiary] || []
+    end
 
     def fetch_finances
       Fetch.new(tdc_id, 'fetchCompanyFinance').result_set.to_hash[:finance] || []
