@@ -1,14 +1,6 @@
 module NNEClient
   class Finance
-    class << self
-      def attributes(*attrs)
-        attrs.each do |attribute|
-          define_method(attribute) do
-            @hash[attribute] unless @hash[attribute].kind_of?(Hash)
-          end
-        end
-      end
-    end
+    extend NNEClient::ResultAttributes
 
     def initialize(finance_hash)
       @hash = finance_hash

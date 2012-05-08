@@ -1,12 +1,11 @@
 module NNEClient
   class Subsidiary
-    attr_reader :share, :name, :country
+    extend NNEClient::ResultAttributes
+
+    attributes :name, :country
 
     def initialize(subsidiary_hash)
-      @share = subsidiary_hash[:share].strip
-      @name = subsidiary_hash[:name]
-      @country = subsidiary_hash[:country] unless subsidiary_hash[:country].kind_of?(Hash)
-      @tdc_id = subsidiary_hash[:tdc_id]
+      @hash = subsidiary_hash
     end
 
     def ==(other)
@@ -15,8 +14,12 @@ module NNEClient
         country == other.country
     end
 
+    def share
+      @hash[:share].strip
+    end
+
     def company
-      Search.new(:tdcId => @tdc_id).result_set.first
+      Search.new(:tdcId => @hash[:tdc_id]).result_set.first
     end
   end
 end
