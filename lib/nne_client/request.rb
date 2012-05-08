@@ -1,4 +1,5 @@
 module NNEClient
+  # @!visibility private
   class Request
     class << self
       def execute(command, &block)

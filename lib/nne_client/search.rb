@@ -1,4 +1,5 @@
 module NNEClient
+  # @!visibility private
   class Search
 
     def initialize(query)

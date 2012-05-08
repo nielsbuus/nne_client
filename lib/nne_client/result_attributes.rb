@@ -7,7 +7,7 @@ module NNEClient
   # ignores any value in the @hash that is itself a Hash. This is due to the way
   # the NNE SOAP API works together with Savon.
   #
-  # @example
+  # Example:
   #
   #   class Foo
   #     extends NNEClient::ResultAttributes
@@ -21,6 +21,8 @@ module NNEClient
   #     => 1
   #   Foo.new.bar
   #     => nil
+  #
+  # @!visibility private
   module ResultAttributes
 
     # Create a method for each key listed in attrs

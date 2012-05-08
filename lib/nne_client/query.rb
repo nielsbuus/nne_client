@@ -1,4 +1,5 @@
 module NNEClient
+  # @!visibility private
   class Query
     def initialize(query_hash, xml)
       @query_hash = query_hash

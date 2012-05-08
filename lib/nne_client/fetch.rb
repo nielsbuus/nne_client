@@ -1,4 +1,5 @@
 module NNEClient
+  # @!visibility private
   class Fetch
     def initialize(tdc_id, command)
       @tdc_id = tdc_id
