@@ -11,7 +11,7 @@ module NNEClient
     def ==(other)
       share == other.share &&
         name == other.name &&
-        country = other.country
+        country == other.country
     end
   end
 end
