@@ -8,6 +8,7 @@ require "nne_client/question"
 require "nne_client/result"
 require "nne_client/result_set"
 require "nne_client/ownership"
+require "nne_client/subsidiary"
 require "nne_client/trade"
 
 module NNEClient
