@@ -139,6 +139,29 @@ describe NNEClient::Result do
     }
   end
 
+  context "with no subsidiaries" do
+    it "has no subsidiares" do
+      soap_vcr('result_no_subsidiaries') do
+        result = NNEClient.search(:tdcId => '100319964').first
+        result.subsidiaries.should be_empty
+      end
+    end
+  end
+
+  context "with a single subsidiary" do
+    it "returns the subsidiary" do
+      soap_vcr('result_single_subsidiary') do
+        NNEClient.search(:name => 'Ikea').first.subsidiaries.should eq [
+          NNEClient::Subsidiary.new(
+            :country => "Danmark",
+            :share => "100",
+            :name => "Ikea Ejendomme ApS"
+          )
+        ]
+      end
+    end
+  end
+
   it "knows all names" do
     soap_vcr('result_names') do
       result = NNEClient::Result.new(:official_name => 'Name', :tdc_id => '100323228')
