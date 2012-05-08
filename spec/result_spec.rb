@@ -34,7 +34,7 @@ describe NNEClient::Result do
 
   context "with extended info" do
     around(:each) do |example|
-      VCR.use_cassette('result_extended_info', :match_requests_on => [:body]) do
+      VCR.use_cassette('result_extended_info', :match_requests_on => [:soap_body_matcher]) do
         example.run
       end
     end
@@ -48,7 +48,7 @@ describe NNEClient::Result do
   end
 
   it "knows all names" do
-    VCR.use_cassette('result_names', :match_requests_on => [:body]) do
+    VCR.use_cassette('result_names', :match_requests_on => [:soap_body_matcher]) do
       result = NNEClient::Result.new(:official_name => 'Name', :tdc_id => '100323228')
       result.additional_names.should == [
         "Tv Holbæk A/S",
@@ -61,7 +61,7 @@ describe NNEClient::Result do
   end
 
   it "is an empty array if no additinal names present" do
-    VCR.use_cassette('result_names_empty', :match_requests_on => [:body]) do
+    VCR.use_cassette('result_names_empty', :match_requests_on => [:soap_body_matcher]) do
       result = NNEClient::Result.new(:official_name => 'Name', :tdc_id => '202541543')
       result.additional_names.should == []
     end
