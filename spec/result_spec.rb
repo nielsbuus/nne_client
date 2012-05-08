@@ -39,12 +39,12 @@ describe NNEClient::Result do
       end
     end
 
-    its(:email) { should == 'jacob@incremental.dk' }
-    its(:homepage) { should be_nil }
-    its(:founded_year) { should == '2009' }
+    its(:email)               { should == 'jacob@incremental.dk' }
+    its(:homepage)            { should be_nil }
+    its(:founded_year)        { should == '2009' }
     its(:number_of_employees) { should == '0' }
-    its(:tdf_name) { should == 'Incremental' }
-    its(:status_text) { should == 'Selskabet er i normal drift.' }
+    its(:tdf_name)            { should == 'Incremental' }
+    its(:status_text)         { should == 'Selskabet er i normal drift.' }
   end
 
   it "knows all names" do

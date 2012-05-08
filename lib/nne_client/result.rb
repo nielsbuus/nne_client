@@ -1,7 +1,8 @@
 module NNEClient
   class Result
     class << self
-      # Basic attributes are attributes returned by NNE on the CompanyBasic object
+      # Basic attributes are attributes returned by NNE on the
+      # CompanyBasic object
       def basic_attributes(*attrs)
         attrs.each do |attr|
           define_method(attr) { @result_hash[attr] }
