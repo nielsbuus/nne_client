@@ -7,6 +7,7 @@ require "nne_client/query"
 require "nne_client/question"
 require "nne_client/result"
 require "nne_client/result_set"
+require "nne_client/trade"
 
 module NNEClient
   extend self
