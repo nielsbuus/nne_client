@@ -1,0 +1,1408 @@
+--- 
+http_interactions: 
+- request: 
+    method: get
+    uri: http://service.nnerhverv.dk/nne-ws/3.1/NNE?WSDL
+    body: 
+      string: ""
+    headers: 
+      accept: 
+      - "*/*"
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      content-type: 
+      - text/xml
+      date: 
+      - Tue, 08 May 2012 13:03:45 GMT
+      x-powered-by: 
+      - ASP.NET
+      server: 
+      - Microsoft-IIS/6.0
+      connection: 
+      - close
+    body: 
+      string: |-
+        <?xml version="1.0" encoding="UTF-8"?>
+        <definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://com.stibo.net/nne/3.1/NNE" xmlns:ns2="http://com.stibo.net/nne/3.1/Types/NNE" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="NNE" targetNamespace="http://com.stibo.net/nne/3.1/NNE">
+          <types>
+            <schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://com.stibo.net/nne/3.1/Types/NNE" xmlns:soap11-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://com.stibo.net/nne/3.1/Types/NNE">
+              <import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+              <complexType name="Company">
+                <sequence>
+                  <element name="PNo" type="int"/>
+                  <element name="adProtection" type="int"/>
+                  <element name="bankConnection" type="string"/>
+                  <element name="companyForm" type="string"/>
+                  <element name="companyId" type="int"/>
+                  <element name="companyType" type="string"/>
+                  <element name="cvrNo" type="int"/>
+                  <element name="district" type="string"/>
+                  <element name="dsSizeCode" type="string"/>
+                  <element name="dsSizeCodeBranch" type="string"/>
+                  <element name="email" type="string"/>
+                  <element name="fax" type="string"/>
+                  <element name="foundedYear" type="string"/>
+                  <element name="geography" type="tns:KVH"/>
+                  <element name="homePage" type="string"/>
+                  <element name="legalEntity" type="int"/>
+                  <element name="linkDebtor" type="string"/>
+                  <element name="linkGroupHierarchy" type="string"/>
+                  <element name="linkMap" type="string"/>
+                  <element name="linkNews" type="string"/>
+                  <element name="numberOfEmployees" type="int"/>
+                  <element name="numberOfEmployeesBranch" type="int"/>
+                  <element name="officialName" type="string"/>
+                  <element name="parentCompany" type="boolean"/>
+                  <element name="phone" type="string"/>
+                  <element name="statusText" type="string"/>
+                  <element name="statusValue" type="int"/>
+                  <element name="stockQuotation" type="string"/>
+                  <element name="street" type="string"/>
+                  <element name="subscriptionRules" type="string"/>
+                  <element name="tdcId" type="int"/>
+                  <element name="tdfName" type="string"/>
+                  <element name="updateDate" type="string"/>
+                  <element name="zipCode" type="int"/></sequence></complexType>
+              <complexType name="KVH">
+                <sequence>
+                  <element name="houseNo" type="string"/>
+                  <element name="municipalityCode" type="int"/>
+                  <element name="streetCode" type="int"/></sequence></complexType>
+              <complexType name="ArrayOfAccountant">
+                <complexContent>
+                  <restriction base="soap11-enc:Array">
+                    <attribute ref="soap11-enc:arrayType" wsdl:arrayType="tns:Accountant[]"/></restriction></complexContent></complexType>
+              <complexType name="Accountant">
+                <sequence>
+                  <element name="district" type="string"/>
+                  <element name="name" type="string"/>
+                  <element name="zipCode" type="int"/></sequence></complexType>
+              <complexType name="ArrayOfstring">
+                <complexContent>
+                  <restriction base="soap11-enc:Array">
+                    <attribute ref="soap11-enc:arrayType" wsdl:arrayType="string[]"/></restriction></complexContent></complexType>
+              <complexType name="ArrayOfSubsidiary">
+                <complexContent>
+                  <restriction base="soap11-enc:Array">
+                    <attribute ref="soap11-enc:arrayType" wsdl:arrayType="tns:Subsidiary[]"/></restriction></complexContent></complexType>
+              <complexType name="Subsidiary">
+                <sequence>
+                  <element name="country" type="string"/>
+                  <element name="name" type="string"/>
+                  <element name="share" type="string"/>
+                  <element name="tdcId" type="int"/></sequence></complexType>
+              <complexType name="ArrayOfBank">
+                <complexContent>
+                  <restriction base="soap11-enc:Array">
+                    <attribute ref="soap11-enc:arrayType" wsdl:arrayType="tns:Bank[]"/></restriction></complexContent></complexType>
+              <complexType name="Bank">
+                <sequence>
+                  <element name="name" type="string"/></sequence></complexType>
+              <complexType name="ArrayOfCategory">
+                <complexContent>
+                  <restriction base="soap11-enc:Array">
+                    <attribute ref="soap11-enc:arrayType" wsdl:arrayType="tns:Category[]"/></restriction></complexContent></complexType>
+              <complexType name="Category">
+                <sequence>
+                  <element name="category" type="string"/>
+                  <element name="categoryCode" type="int"/></sequence></complexType>
+              <complexType name="ArrayOfDecisionMaker">
+                <complexContent>
+                  <restriction base="soap11-enc:Array">
+                    <attribute ref="soap11-enc:arrayType" wsdl:arrayType="tns:DecisionMaker[]"/></restriction></complexContent></complexType>
+              <complexType name="DecisionMaker">
+                <sequence>
+                  <element name="firstName" type="string"/>
+                  <element name="group" type="string"/>
+                  <element name="id" type="int"/>
+                  <element name="lastName" type="string"/>
+                  <element name="title" type="string"/></sequence></complexType>
+              <complexType name="ArrayOfFinance">
+                <complexContent>
+                  <restriction base="soap11-enc:Array">
+                    <attribute ref="soap11-enc:arrayType" wsdl:arrayType="tns:Finance[]"/></restriction></complexContent></complexType>
+              <complexType name="Finance">
+                <sequence>
+                  <element name="accountingDate" type="string"/>
+                  <element name="assets" type="float"/>
+                  <element name="availableFunds" type="float"/>
+                  <element name="availableFundsRatio" type="float"/>
+                  <element name="balance" type="float"/>
+                  <element name="capacityRatio" type="float"/>
+                  <element name="contributionRatio" type="float"/>
+                  <element name="creditRating" type="string"/>
+                  <element name="currentAssets" type="float"/>
+                  <element name="depreciations" type="float"/>
+                  <element name="fixedAssets" type="float"/>
+                  <element name="fixedCost" type="float"/>
+                  <element name="grossProfit" type="float"/>
+                  <element name="incomeBeforeIncomeTax" type="float"/>
+                  <element name="linkPDF" type="string"/>
+                  <element name="longTermedLiability" type="float"/>
+                  <element name="lotsAndSites" type="float"/>
+                  <element name="netOutcome" type="float"/>
+                  <element name="numberOfEmployees" type="int"/>
+                  <element name="placings" type="float"/>
+                  <element name="profit" type="float"/>
+                  <element name="profitForTheYear" type="float"/>
+                  <element name="profitRatio" type="float"/>
+                  <element name="publishedDate" type="string"/>
+                  <element name="returnOnAssets" type="float"/>
+                  <element name="shareHoldersFundsOfInterest" type="float"/>
+                  <element name="shareholdersFunds" type="float"/>
+                  <element name="shortTermedLiability" type="float"/>
+                  <element name="solvencyRatio" type="float"/>
+                  <element name="stock" type="float"/>
+                  <element name="tradeDebitors" type="float"/>
+                  <element name="turnover" type="float"/>
+                  <element name="year" type="string"/></sequence></complexType>
+              <complexType name="ArrayOfOwnership">
+                <complexContent>
+                  <restriction base="soap11-enc:Array">
+                    <attribute ref="soap11-enc:arrayType" wsdl:arrayType="tns:Ownership[]"/></restriction></complexContent></complexType>
+              <complexType name="Ownership">
+                <sequence>
+                  <element name="country" type="string"/>
+                  <element name="name" type="string"/>
+                  <element name="share" type="string"/>
+                  <element name="tdcId" type="int"/></sequence></complexType>
+              <complexType name="ArrayOfTrade">
+                <complexContent>
+                  <restriction base="soap11-enc:Array">
+                    <attribute ref="soap11-enc:arrayType" wsdl:arrayType="tns:Trade[]"/></restriction></complexContent></complexType>
+              <complexType name="Trade">
+                <sequence>
+                  <element name="primary" type="boolean"/>
+                  <element name="trade" type="string"/>
+                  <element name="tradeCode" type="string"/></sequence></complexType>
+              <complexType name="ArrayOfValueText">
+                <complexContent>
+                  <restriction base="soap11-enc:Array">
+                    <attribute ref="soap11-enc:arrayType" wsdl:arrayType="tns:ValueText[]"/></restriction></complexContent></complexType>
+              <complexType name="ValueText">
+                <sequence>
+                  <element name="text" type="string"/>
+                  <element name="value" type="int"/></sequence></complexType>
+              <complexType name="ArrayOfKeyText">
+                <complexContent>
+                  <restriction base="soap11-enc:Array">
+                    <attribute ref="soap11-enc:arrayType" wsdl:arrayType="tns:KeyText[]"/></restriction></complexContent></complexType>
+              <complexType name="KeyText">
+                <sequence>
+                  <element name="key" type="string"/>
+                  <element name="text" type="string"/></sequence></complexType>
+              <complexType name="ArrayOfKeyInterval">
+                <complexContent>
+                  <restriction base="soap11-enc:Array">
+                    <attribute ref="soap11-enc:arrayType" wsdl:arrayType="tns:KeyInterval[]"/></restriction></complexContent></complexType>
+              <complexType name="KeyInterval">
+                <sequence>
+                  <element name="key" type="string"/>
+                  <element name="valueFrom" type="int"/>
+                  <element name="valueTo" type="int"/></sequence></complexType>
+              <complexType name="Question">
+                <sequence>
+                  <element name="cvrNo" type="int"/>
+                  <element name="district" type="string"/>
+                  <element name="houseNo" type="string"/>
+                  <element name="name" type="string"/>
+                  <element name="nameStartsWith" type="boolean"/>
+                  <element name="phone" type="string"/>
+                  <element name="street" type="string"/>
+                  <element name="streetStartsWith" type="boolean"/>
+                  <element name="tdcId" type="int"/>
+                  <element name="zipCode" type="int"/></sequence></complexType>
+              <complexType name="QuestionTargetGroup">
+                <complexContent>
+                  <extension base="tns:Question">
+                    <sequence>
+                      <element name="PNo" type="int"/>
+                      <element name="accountantName" type="string"/>
+                      <element name="accountantZipCode" type="int"/>
+                      <element name="areaCodes" type="string"/>
+                      <element name="balanceFrom" type="int"/>
+                      <element name="balanceTo" type="int"/>
+                      <element name="bankConnection" type="string"/>
+                      <element name="category" type="string"/>
+                      <element name="categoryCode" type="int"/>
+                      <element name="categoryCodeList" type="string"/>
+                      <element name="companyFormCodeList" type="string"/>
+                      <element name="companyStatus" type="string"/>
+                      <element name="contributionRatioFrom" type="int"/>
+                      <element name="contributionRatioTo" type="int"/>
+                      <element name="countyCodes" type="string"/>
+                      <element name="decisionMaker" type="string"/>
+                      <element name="dsSizeCodeBranchFrom" type="string"/>
+                      <element name="dsSizeCodeBranchTo" type="string"/>
+                      <element name="email" type="string"/>
+                      <element name="foundedFrom" type="string"/>
+                      <element name="foundedTo" type="string"/>
+                      <element name="functionArea" type="int"/>
+                      <element name="grossProfitFrom" type="int"/>
+                      <element name="grossProfitTo" type="int"/>
+                      <element name="hasPhoneOnly" type="boolean"/>
+                      <element name="homePage" type="string"/>
+                      <element name="incomeBeforeIncomeTaxFrom" type="int"/>
+                      <element name="incomeBeforeIncomeTaxTo" type="int"/>
+                      <element name="legalEntitiesOnly" type="boolean"/>
+                      <element name="municipalityCodes" type="string"/>
+                      <element name="netResultFrom" type="int"/>
+                      <element name="netResultTo" type="int"/>
+                      <element name="noOfEmployeesFrom" type="int"/>
+                      <element name="noOfEmployeesTo" type="int"/>
+                      <element name="profitRatioFrom" type="int"/>
+                      <element name="profitRatioTo" type="int"/>
+                      <element name="registredCompaniesOnly" type="boolean"/>
+                      <element name="shareholdersFundFrom" type="int"/>
+                      <element name="shareholdersFundTo" type="int"/>
+                      <element name="trade" type="string"/>
+                      <element name="tradeCode" type="string"/>
+                      <element name="tradeCodeFrom" type="string"/>
+                      <element name="tradeCodeList" type="string"/>
+                      <element name="tradeCodeTo" type="string"/>
+                      <element name="tradeGroup" type="string"/>
+                      <element name="tradeGroupList" type="string"/>
+                      <element name="turnoverFrom" type="int"/>
+                      <element name="turnoverTo" type="int"/>
+                      <element name="updateDateFrom" type="string"/>
+                      <element name="updateDateTo" type="string"/>
+                      <element name="zipCodes" type="string"/></sequence></extension></complexContent></complexType>
+              <complexType name="Answer">
+                <sequence>
+                  <element name="companyBasic" type="tns:ArrayOfCompanyBasic"/>
+                  <element name="errorMessage" type="string"/>
+                  <element name="window" type="tns:Window"/></sequence></complexType>
+              <complexType name="ArrayOfCompanyBasic">
+                <complexContent>
+                  <restriction base="soap11-enc:Array">
+                    <attribute ref="soap11-enc:arrayType" wsdl:arrayType="tns:CompanyBasic[]"/></restriction></complexContent></complexType>
+              <complexType name="CompanyBasic">
+                <sequence>
+                  <element name="PNo" type="int"/>
+                  <element name="adProtection" type="int"/>
+                  <element name="companyId" type="int"/>
+                  <element name="companyType" type="string"/>
+                  <element name="cvrNo" type="int"/>
+                  <element name="district" type="string"/>
+                  <element name="fax" type="string"/>
+                  <element name="officialName" type="string"/>
+                  <element name="phone" type="string"/>
+                  <element name="street" type="string"/>
+                  <element name="tdcId" type="int"/>
+                  <element name="zipCode" type="int"/></sequence></complexType>
+              <complexType name="Window">
+                <sequence>
+                  <element name="currentPage" type="int"/>
+                  <element name="from" type="int"/>
+                  <element name="to" type="int"/>
+                  <element name="total" type="int"/>
+                  <element name="totalPages" type="int"/></sequence></complexType></schema></types>
+          <message name="NNE_PortType_fetchCompany">
+            <part name="int_1" type="xsd:int"/>
+            <part name="int_2" type="xsd:int"/>
+            <part name="String_3" type="xsd:string"/>
+            <part name="String_4" type="xsd:string"/></message>
+          <message name="NNE_PortType_fetchCompanyResponse">
+            <part name="result" type="ns2:Company"/></message>
+          <message name="NNE_PortType_fetchCompanyAccountants">
+            <part name="int_1" type="xsd:int"/>
+            <part name="int_2" type="xsd:int"/>
+            <part name="String_3" type="xsd:string"/>
+            <part name="String_4" type="xsd:string"/></message>
+          <message name="NNE_PortType_fetchCompanyAccountantsResponse">
+            <part name="result" type="ns2:ArrayOfAccountant"/></message>
+          <message name="NNE_PortType_fetchCompanyAdditionalNames">
+            <part name="int_1" type="xsd:int"/>
+            <part name="int_2" type="xsd:int"/>
+            <part name="String_3" type="xsd:string"/>
+            <part name="String_4" type="xsd:string"/></message>
+          <message name="NNE_PortType_fetchCompanyAdditionalNamesResponse">
+            <part name="result" type="ns2:ArrayOfstring"/></message>
+          <message name="NNE_PortType_fetchCompanyAssociates">
+            <part name="int_1" type="xsd:int"/>
+            <part name="int_2" type="xsd:int"/>
+            <part name="String_3" type="xsd:string"/>
+            <part name="String_4" type="xsd:string"/></message>
+          <message name="NNE_PortType_fetchCompanyAssociatesResponse">
+            <part name="result" type="ns2:ArrayOfSubsidiary"/></message>
+          <message name="NNE_PortType_fetchCompanyBankConnections">
+            <part name="int_1" type="xsd:int"/>
+            <part name="int_2" type="xsd:int"/>
+            <part name="String_3" type="xsd:string"/>
+            <part name="String_4" type="xsd:string"/></message>
+          <message name="NNE_PortType_fetchCompanyBankConnectionsResponse">
+            <part name="result" type="ns2:ArrayOfBank"/></message>
+          <message name="NNE_PortType_fetchCompanyCategories">
+            <part name="int_1" type="xsd:int"/>
+            <part name="int_2" type="xsd:int"/>
+            <part name="String_3" type="xsd:string"/>
+            <part name="String_4" type="xsd:string"/></message>
+          <message name="NNE_PortType_fetchCompanyCategoriesResponse">
+            <part name="result" type="ns2:ArrayOfCategory"/></message>
+          <message name="NNE_PortType_fetchCompanyCreditRating">
+            <part name="int_1" type="xsd:int"/>
+            <part name="int_2" type="xsd:int"/>
+            <part name="String_3" type="xsd:string"/>
+            <part name="String_4" type="xsd:string"/></message>
+          <message name="NNE_PortType_fetchCompanyCreditRatingResponse">
+            <part name="result" type="xsd:string"/></message>
+          <message name="NNE_PortType_fetchCompanyDecisionmakers">
+            <part name="int_1" type="xsd:int"/>
+            <part name="int_2" type="xsd:int"/>
+            <part name="String_3" type="xsd:string"/>
+            <part name="String_4" type="xsd:string"/></message>
+          <message name="NNE_PortType_fetchCompanyDecisionmakersResponse">
+            <part name="result" type="ns2:ArrayOfDecisionMaker"/></message>
+          <message name="NNE_PortType_fetchCompanyFinance">
+            <part name="int_1" type="xsd:int"/>
+            <part name="int_2" type="xsd:int"/>
+            <part name="String_3" type="xsd:string"/>
+            <part name="String_4" type="xsd:string"/></message>
+          <message name="NNE_PortType_fetchCompanyFinanceResponse">
+            <part name="result" type="ns2:ArrayOfFinance"/></message>
+          <message name="NNE_PortType_fetchCompanyOwnership">
+            <part name="int_1" type="xsd:int"/>
+            <part name="int_2" type="xsd:int"/>
+            <part name="String_3" type="xsd:string"/>
+            <part name="String_4" type="xsd:string"/></message>
+          <message name="NNE_PortType_fetchCompanyOwnershipResponse">
+            <part name="result" type="ns2:ArrayOfOwnership"/></message>
+          <message name="NNE_PortType_fetchCompanySubsidiaries">
+            <part name="int_1" type="xsd:int"/>
+            <part name="int_2" type="xsd:int"/>
+            <part name="String_3" type="xsd:string"/>
+            <part name="String_4" type="xsd:string"/></message>
+          <message name="NNE_PortType_fetchCompanySubsidiariesResponse">
+            <part name="result" type="ns2:ArrayOfSubsidiary"/></message>
+          <message name="NNE_PortType_fetchCompanyTrade">
+            <part name="int_1" type="xsd:int"/>
+            <part name="int_2" type="xsd:int"/>
+            <part name="String_3" type="xsd:string"/>
+            <part name="String_4" type="xsd:string"/></message>
+          <message name="NNE_PortType_fetchCompanyTradeResponse">
+            <part name="result" type="ns2:ArrayOfTrade"/></message>
+          <message name="NNE_PortType_lookupAreaCodes"/>
+          <message name="NNE_PortType_lookupAreaCodesResponse">
+            <part name="result" type="ns2:ArrayOfValueText"/></message>
+          <message name="NNE_PortType_lookupCategoryCodes"/>
+          <message name="NNE_PortType_lookupCategoryCodesResponse">
+            <part name="result" type="ns2:ArrayOfValueText"/></message>
+          <message name="NNE_PortType_lookupCompanyForms"/>
+          <message name="NNE_PortType_lookupCompanyFormsResponse">
+            <part name="result" type="ns2:ArrayOfKeyText"/></message>
+          <message name="NNE_PortType_lookupCompanyStatus"/>
+          <message name="NNE_PortType_lookupCompanyStatusResponse">
+            <part name="result" type="ns2:ArrayOfKeyText"/></message>
+          <message name="NNE_PortType_lookupCountyCodes"/>
+          <message name="NNE_PortType_lookupCountyCodesResponse">
+            <part name="result" type="ns2:ArrayOfValueText"/></message>
+          <message name="NNE_PortType_lookupCreditRatings"/>
+          <message name="NNE_PortType_lookupCreditRatingsResponse">
+            <part name="result" type="ns2:ArrayOfKeyText"/></message>
+          <message name="NNE_PortType_lookupDsSizeCodes"/>
+          <message name="NNE_PortType_lookupDsSizeCodesResponse">
+            <part name="result" type="ns2:ArrayOfKeyInterval"/></message>
+          <message name="NNE_PortType_lookupFunctionAreas"/>
+          <message name="NNE_PortType_lookupFunctionAreasResponse">
+            <part name="result" type="ns2:ArrayOfValueText"/></message>
+          <message name="NNE_PortType_lookupMunicipalityCodes"/>
+          <message name="NNE_PortType_lookupMunicipalityCodesResponse">
+            <part name="result" type="ns2:ArrayOfValueText"/></message>
+          <message name="NNE_PortType_lookupTradeCodes"/>
+          <message name="NNE_PortType_lookupTradeCodesResponse">
+            <part name="result" type="ns2:ArrayOfKeyText"/></message>
+          <message name="NNE_PortType_lookupTradeGroups"/>
+          <message name="NNE_PortType_lookupTradeGroupsResponse">
+            <part name="result" type="ns2:ArrayOfKeyText"/></message>
+          <message name="NNE_PortType_search">
+            <part name="Question_1" type="ns2:Question"/>
+            <part name="int_2" type="xsd:int"/>
+            <part name="int_3" type="xsd:int"/>
+            <part name="int_4" type="xsd:int"/>
+            <part name="String_5" type="xsd:string"/></message>
+          <message name="NNE_PortType_searchResponse">
+            <part name="result" type="ns2:Answer"/></message>
+          <message name="NNE_PortType_searchTargetGroup">
+            <part name="QuestionTargetGroup_1" type="ns2:QuestionTargetGroup"/>
+            <part name="int_2" type="xsd:int"/>
+            <part name="int_3" type="xsd:int"/>
+            <part name="int_4" type="xsd:int"/>
+            <part name="String_5" type="xsd:string"/></message>
+          <message name="NNE_PortType_searchTargetGroupResponse">
+            <part name="result" type="ns2:Answer"/></message>
+          <portType name="NNE_PortType">
+            <operation name="fetchCompany" parameterOrder="int_1 int_2 String_3 String_4">
+              <input message="tns:NNE_PortType_fetchCompany"/>
+              <output message="tns:NNE_PortType_fetchCompanyResponse"/></operation>
+            <operation name="fetchCompanyAccountants" parameterOrder="int_1 int_2 String_3 String_4">
+              <input message="tns:NNE_PortType_fetchCompanyAccountants"/>
+              <output message="tns:NNE_PortType_fetchCompanyAccountantsResponse"/></operation>
+            <operation name="fetchCompanyAdditionalNames" parameterOrder="int_1 int_2 String_3 String_4">
+              <input message="tns:NNE_PortType_fetchCompanyAdditionalNames"/>
+              <output message="tns:NNE_PortType_fetchCompanyAdditionalNamesResponse"/></operation>
+            <operation name="fetchCompanyAssociates" parameterOrder="int_1 int_2 String_3 String_4">
+              <input message="tns:NNE_PortType_fetchCompanyAssociates"/>
+              <output message="tns:NNE_PortType_fetchCompanyAssociatesResponse"/></operation>
+            <operation name="fetchCompanyBankConnections" parameterOrder="int_1 int_2 String_3 String_4">
+              <input message="tns:NNE_PortType_fetchCompanyBankConnections"/>
+              <output message="tns:NNE_PortType_fetchCompanyBankConnectionsResponse"/></operation>
+            <operation name="fetchCompanyCategories" parameterOrder="int_1 int_2 String_3 String_4">
+              <input message="tns:NNE_PortType_fetchCompanyCategories"/>
+              <output message="tns:NNE_PortType_fetchCompanyCategoriesResponse"/></operation>
+            <operation name="fetchCompanyCreditRating" parameterOrder="int_1 int_2 String_3 String_4">
+              <input message="tns:NNE_PortType_fetchCompanyCreditRating"/>
+              <output message="tns:NNE_PortType_fetchCompanyCreditRatingResponse"/></operation>
+            <operation name="fetchCompanyDecisionmakers" parameterOrder="int_1 int_2 String_3 String_4">
+              <input message="tns:NNE_PortType_fetchCompanyDecisionmakers"/>
+              <output message="tns:NNE_PortType_fetchCompanyDecisionmakersResponse"/></operation>
+            <operation name="fetchCompanyFinance" parameterOrder="int_1 int_2 String_3 String_4">
+              <input message="tns:NNE_PortType_fetchCompanyFinance"/>
+              <output message="tns:NNE_PortType_fetchCompanyFinanceResponse"/></operation>
+            <operation name="fetchCompanyOwnership" parameterOrder="int_1 int_2 String_3 String_4">
+              <input message="tns:NNE_PortType_fetchCompanyOwnership"/>
+              <output message="tns:NNE_PortType_fetchCompanyOwnershipResponse"/></operation>
+            <operation name="fetchCompanySubsidiaries" parameterOrder="int_1 int_2 String_3 String_4">
+              <input message="tns:NNE_PortType_fetchCompanySubsidiaries"/>
+              <output message="tns:NNE_PortType_fetchCompanySubsidiariesResponse"/></operation>
+            <operation name="fetchCompanyTrade" parameterOrder="int_1 int_2 String_3 String_4">
+              <input message="tns:NNE_PortType_fetchCompanyTrade"/>
+              <output message="tns:NNE_PortType_fetchCompanyTradeResponse"/></operation>
+            <operation name="lookupAreaCodes">
+              <input message="tns:NNE_PortType_lookupAreaCodes"/>
+              <output message="tns:NNE_PortType_lookupAreaCodesResponse"/></operation>
+            <operation name="lookupCategoryCodes">
+              <input message="tns:NNE_PortType_lookupCategoryCodes"/>
+              <output message="tns:NNE_PortType_lookupCategoryCodesResponse"/></operation>
+            <operation name="lookupCompanyForms">
+              <input message="tns:NNE_PortType_lookupCompanyForms"/>
+              <output message="tns:NNE_PortType_lookupCompanyFormsResponse"/></operation>
+            <operation name="lookupCompanyStatus">
+              <input message="tns:NNE_PortType_lookupCompanyStatus"/>
+              <output message="tns:NNE_PortType_lookupCompanyStatusResponse"/></operation>
+            <operation name="lookupCountyCodes">
+              <input message="tns:NNE_PortType_lookupCountyCodes"/>
+              <output message="tns:NNE_PortType_lookupCountyCodesResponse"/></operation>
+            <operation name="lookupCreditRatings">
+              <input message="tns:NNE_PortType_lookupCreditRatings"/>
+              <output message="tns:NNE_PortType_lookupCreditRatingsResponse"/></operation>
+            <operation name="lookupDsSizeCodes">
+              <input message="tns:NNE_PortType_lookupDsSizeCodes"/>
+              <output message="tns:NNE_PortType_lookupDsSizeCodesResponse"/></operation>
+            <operation name="lookupFunctionAreas">
+              <input message="tns:NNE_PortType_lookupFunctionAreas"/>
+              <output message="tns:NNE_PortType_lookupFunctionAreasResponse"/></operation>
+            <operation name="lookupMunicipalityCodes">
+              <input message="tns:NNE_PortType_lookupMunicipalityCodes"/>
+              <output message="tns:NNE_PortType_lookupMunicipalityCodesResponse"/></operation>
+            <operation name="lookupTradeCodes">
+              <input message="tns:NNE_PortType_lookupTradeCodes"/>
+              <output message="tns:NNE_PortType_lookupTradeCodesResponse"/></operation>
+            <operation name="lookupTradeGroups">
+              <input message="tns:NNE_PortType_lookupTradeGroups"/>
+              <output message="tns:NNE_PortType_lookupTradeGroupsResponse"/></operation>
+            <operation name="search" parameterOrder="Question_1 int_2 int_3 int_4 String_5">
+              <input message="tns:NNE_PortType_search"/>
+              <output message="tns:NNE_PortType_searchResponse"/></operation>
+            <operation name="searchTargetGroup" parameterOrder="QuestionTargetGroup_1 int_2 int_3 int_4 String_5">
+              <input message="tns:NNE_PortType_searchTargetGroup"/>
+              <output message="tns:NNE_PortType_searchTargetGroupResponse"/></operation></portType>
+          <binding name="NNE_PortTypeBinding" type="tns:NNE_PortType">
+            <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc"/>
+            <operation name="fetchCompany">
+              <soap:operation soapAction=""/>
+              <input>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></input>
+              <output>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></output></operation>
+            <operation name="fetchCompanyAccountants">
+              <soap:operation soapAction=""/>
+              <input>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></input>
+              <output>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></output></operation>
+            <operation name="fetchCompanyAdditionalNames">
+              <soap:operation soapAction=""/>
+              <input>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></input>
+              <output>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></output></operation>
+            <operation name="fetchCompanyAssociates">
+              <soap:operation soapAction=""/>
+              <input>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></input>
+              <output>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></output></operation>
+            <operation name="fetchCompanyBankConnections">
+              <soap:operation soapAction=""/>
+              <input>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></input>
+              <output>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></output></operation>
+            <operation name="fetchCompanyCategories">
+              <soap:operation soapAction=""/>
+              <input>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></input>
+              <output>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></output></operation>
+            <operation name="fetchCompanyCreditRating">
+              <soap:operation soapAction=""/>
+              <input>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></input>
+              <output>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></output></operation>
+            <operation name="fetchCompanyDecisionmakers">
+              <soap:operation soapAction=""/>
+              <input>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></input>
+              <output>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></output></operation>
+            <operation name="fetchCompanyFinance">
+              <soap:operation soapAction=""/>
+              <input>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></input>
+              <output>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></output></operation>
+            <operation name="fetchCompanyOwnership">
+              <soap:operation soapAction=""/>
+              <input>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></input>
+              <output>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></output></operation>
+            <operation name="fetchCompanySubsidiaries">
+              <soap:operation soapAction=""/>
+              <input>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></input>
+              <output>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></output></operation>
+            <operation name="fetchCompanyTrade">
+              <soap:operation soapAction=""/>
+              <input>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></input>
+              <output>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></output></operation>
+            <operation name="lookupAreaCodes">
+              <soap:operation soapAction=""/>
+              <input>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></input>
+              <output>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></output></operation>
+            <operation name="lookupCategoryCodes">
+              <soap:operation soapAction=""/>
+              <input>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></input>
+              <output>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></output></operation>
+            <operation name="lookupCompanyForms">
+              <soap:operation soapAction=""/>
+              <input>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></input>
+              <output>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></output></operation>
+            <operation name="lookupCompanyStatus">
+              <soap:operation soapAction=""/>
+              <input>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></input>
+              <output>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></output></operation>
+            <operation name="lookupCountyCodes">
+              <soap:operation soapAction=""/>
+              <input>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></input>
+              <output>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></output></operation>
+            <operation name="lookupCreditRatings">
+              <soap:operation soapAction=""/>
+              <input>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></input>
+              <output>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></output></operation>
+            <operation name="lookupDsSizeCodes">
+              <soap:operation soapAction=""/>
+              <input>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></input>
+              <output>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></output></operation>
+            <operation name="lookupFunctionAreas">
+              <soap:operation soapAction=""/>
+              <input>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></input>
+              <output>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></output></operation>
+            <operation name="lookupMunicipalityCodes">
+              <soap:operation soapAction=""/>
+              <input>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></input>
+              <output>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></output></operation>
+            <operation name="lookupTradeCodes">
+              <soap:operation soapAction=""/>
+              <input>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></input>
+              <output>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></output></operation>
+            <operation name="lookupTradeGroups">
+              <soap:operation soapAction=""/>
+              <input>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></input>
+              <output>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></output></operation>
+            <operation name="search">
+              <soap:operation soapAction=""/>
+              <input>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></input>
+              <output>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></output></operation>
+            <operation name="searchTargetGroup">
+              <soap:operation soapAction=""/>
+              <input>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></input>
+              <output>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></output></operation></binding>
+          <service name="NNE">
+            <port name="NNE_PortTypePort" binding="tns:NNE_PortTypeBinding">
+              <soap:address xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" location="http://service.nnerhverv.dk:80/nne-ws/3.1/NNE"/></port></service></definitions>
+    http_version: "1.1"
+  recorded_at: Tue, 08 May 2012 13:03:46 GMT
+- request: 
+    method: post
+    uri: http://service.nnerhverv.dk/nne-ws/3.1/NNE
+    body: 
+      string: <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:wsdl="http://com.stibo.net/nne/3.1/NNE" xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ins0="http://com.stibo.net/nne/3.1/Types/NNE" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><env:Body><wsdl:search env:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"><Question_1 xsi:type="nne:Question" xmlns:nne="http://com.stibo.net/nne/3.1/Types/NNE"><name xsi:type="xsd:string">Ikea</name></Question_1><int_2 xsi:type="xsd:int">10</int_2><int_3 xsi:type="xsd:int">1</int_3><int_4 xsi:type="xsd:int">0</int_4><String_5 xsi:type="xsd:string"></String_5></wsdl:search></env:Body></env:Envelope>
+    headers: 
+      content-type: 
+      - text/xml;charset=UTF-8
+      accept: 
+      - "*/*"
+      content-length: 
+      - "716"
+      soapaction: 
+      - "\"search\""
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      content-type: 
+      - text/xml; charset="utf-8"
+      date: 
+      - Tue, 08 May 2012 13:03:45 GMT
+      x-powered-by: 
+      - ASP.NET
+      server: 
+      - Microsoft-IIS/6.0
+      connection: 
+      - close
+      soapaction: 
+      - "\"\""
+    body: 
+      string: "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n\
+        <env:Envelope xmlns:env=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:enc=\"http://schemas.xmlsoap.org/soap/encoding/\" xmlns:ns0=\"http://com.stibo.net/nne/3.1/Types/NNE\" env:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\"><env:Body><ans1:searchResponse xmlns:ans1=\"http://com.stibo.net/nne/3.1/NNE\"><result href=\"#ID1\"/></ans1:searchResponse><ns0:Answer id=\"ID1\" xsi:type=\"ns0:Answer\"><companyBasic href=\"#ID2\"/><errorMessage xsi:type=\"xsd:string\" xsi:nil=\"1\"/><window href=\"#ID3\"/></ns0:Answer><ns0:ArrayOfCompanyBasic id=\"ID2\" xsi:type=\"enc:Array\" enc:arrayType=\"ns0:CompanyBasic[10]\"><item href=\"#ID4\"/><item href=\"#ID5\"/><item href=\"#ID6\"/><item href=\"#ID7\"/><item href=\"#ID8\"/><item href=\"#ID9\"/><item href=\"#ID10\"/><item href=\"#ID11\"/><item href=\"#ID12\"/><item href=\"#ID13\"/></ns0:ArrayOfCompanyBasic><ns0:Window id=\"ID3\" xsi:type=\"ns0:Window\"><currentPage xsi:type=\"xsd:int\">1</currentPage><from xsi:type=\"xsd:int\">1</from><to xsi:type=\"xsd:int\">10</to><total xsi:type=\"xsd:int\">20</total><totalPages xsi:type=\"xsd:int\">2</totalPages></ns0:Window><ns0:CompanyBasic id=\"ID4\" xsi:type=\"ns0:CompanyBasic\"><PNo xsi:type=\"xsd:int\">1003624526</PNo><adProtection xsi:type=\"xsd:int\">0</adProtection><companyId xsi:type=\"xsd:int\">724796</companyId><companyType xsi:type=\"xsd:string\">VI</companyType><cvrNo xsi:type=\"xsd:int\">50574911</cvrNo><district xsi:type=\"xsd:string\">Taastrup</district><fax xsi:type=\"xsd:string\" xsi:nil=\"1\"/><officialName xsi:type=\"xsd:string\">IKEA A/S</officialName><phone xsi:type=\"xsd:string\">70150808</phone><street xsi:type=\"xsd:string\">M\xC3\xA5rk\xC3\xA6rvej 15</street><tdcId xsi:type=\"xsd:int\">100311293</tdcId><zipCode xsi:type=\"xsd:int\">2630</zipCode></ns0:CompanyBasic><ns0:CompanyBasic id=\"ID5\" xsi:type=\"ns0:CompanyBasic\"><PNo xsi:type=\"xsd:int\">1003624599</PNo><adProtection xsi:type=\"xsd:int\">0</adProtection><companyId xsi:type=\"xsd:int\">203813</companyId><companyType xsi:type=\"xsd:string\">PL</companyType><cvrNo xsi:type=\"xsd:int\">50574911</cvrNo><district xsi:type=\"xsd:string\">Gentofte</district><fax xsi:type=\"xsd:string\">43590089</fax><officialName xsi:type=\"xsd:string\">Ikea A/S</officialName><phone xsi:type=\"xsd:string\">70150909</phone><street xsi:type=\"xsd:string\">Nybrovej 2</street><tdcId xsi:type=\"xsd:int\">200087382</tdcId><zipCode xsi:type=\"xsd:int\">2820</zipCode></ns0:CompanyBasic><ns0:CompanyBasic id=\"ID6\" xsi:type=\"ns0:CompanyBasic\"><PNo xsi:type=\"xsd:int\">1003624575</PNo><adProtection xsi:type=\"xsd:int\">0</adProtection><companyId xsi:type=\"xsd:int\">4437372</companyId><companyType xsi:type=\"xsd:string\">PL</companyType><cvrNo xsi:type=\"xsd:int\">50574911</cvrNo><district xsi:type=\"xsd:string\">Odense S\xC3\x98</district><fax xsi:type=\"xsd:string\" xsi:nil=\"1\"/><officialName xsi:type=\"xsd:string\">Ikea A/S</officialName><phone xsi:type=\"xsd:string\">70150909</phone><street xsi:type=\"xsd:string\">\xC3\x98rb\xC3\xA6kvej 91</street><tdcId xsi:type=\"xsd:int\">202666498</tdcId><zipCode xsi:type=\"xsd:int\">5220</zipCode></ns0:CompanyBasic><ns0:CompanyBasic id=\"ID7\" xsi:type=\"ns0:CompanyBasic\"><PNo xsi:type=\"xsd:int\">1015466592</PNo><adProtection xsi:type=\"xsd:int\">0</adProtection><companyId xsi:type=\"xsd:int\">4437373</companyId><companyType xsi:type=\"xsd:string\">PL</companyType><cvrNo xsi:type=\"xsd:int\">50574911</cvrNo><district xsi:type=\"xsd:string\">Odense S\xC3\x98</district><fax xsi:type=\"xsd:string\" xsi:nil=\"1\"/><officialName xsi:type=\"xsd:string\">Ikea A/S</officialName><phone xsi:type=\"xsd:string\" xsi:nil=\"1\"/><street xsi:type=\"xsd:string\">\xC3\x98rb\xC3\xA6kvej 91</street><tdcId xsi:type=\"xsd:int\">202666499</tdcId><zipCode xsi:type=\"xsd:int\">5220</zipCode></ns0:CompanyBasic><ns0:CompanyBasic id=\"ID8\" xsi:type=\"ns0:CompanyBasic\"><PNo xsi:type=\"xsd:int\">1003624563</PNo><adProtection xsi:type=\"xsd:int\">0</adProtection><companyId xsi:type=\"xsd:int\">203811</companyId><companyType xsi:type=\"xsd:string\">PL</companyType><cvrNo xsi:type=\"xsd:int\">50574911</cvrNo><district xsi:type=\"xsd:string\">Aarhus N</district><fax xsi:type=\"xsd:string\">86785585</fax><officialName xsi:type=\"xsd:string\">Ikea A/S</officialName><phone xsi:type=\"xsd:string\">70150909</phone><street xsi:type=\"xsd:string\">Graham Bells Vej 9</street><tdcId xsi:type=\"xsd:int\">200087380</tdcId><zipCode xsi:type=\"xsd:int\">8200</zipCode></ns0:CompanyBasic><ns0:CompanyBasic id=\"ID9\" xsi:type=\"ns0:CompanyBasic\"><PNo xsi:type=\"xsd:int\">1015543953</PNo><adProtection xsi:type=\"xsd:int\">0</adProtection><companyId xsi:type=\"xsd:int\">4244151</companyId><companyType xsi:type=\"xsd:string\">PL</companyType><cvrNo xsi:type=\"xsd:int\">50574911</cvrNo><district xsi:type=\"xsd:string\">Aalborg SV</district><fax xsi:type=\"xsd:string\" xsi:nil=\"1\"/><officialName xsi:type=\"xsd:string\">Ikea A/S</officialName><phone xsi:type=\"xsd:string\">98114908</phone><street xsi:type=\"xsd:string\">Krebsen 40</street><tdcId xsi:type=\"xsd:int\">202580625</tdcId><zipCode xsi:type=\"xsd:int\">9200</zipCode></ns0:CompanyBasic><ns0:CompanyBasic id=\"ID10\" xsi:type=\"ns0:CompanyBasic\"><PNo xsi:type=\"xsd:int\">1001951057</PNo><adProtection xsi:type=\"xsd:int\">0</adProtection><companyId xsi:type=\"xsd:int\">3569747</companyId><companyType xsi:type=\"xsd:string\">PL</companyType><cvrNo xsi:type=\"xsd:int\">50574911</cvrNo><district xsi:type=\"xsd:string\">Taastrup</district><fax xsi:type=\"xsd:string\" xsi:nil=\"1\"/><officialName xsi:type=\"xsd:string\">Ikea A/S Ejendomme</officialName><phone xsi:type=\"xsd:string\" xsi:nil=\"1\"/><street xsi:type=\"xsd:string\">M\xC3\xA5rk\xC3\xA6rvej 15</street><tdcId xsi:type=\"xsd:int\">201866959</tdcId><zipCode xsi:type=\"xsd:int\">2630</zipCode></ns0:CompanyBasic><ns0:CompanyBasic id=\"ID11\" xsi:type=\"ns0:CompanyBasic\"><PNo xsi:type=\"xsd:int\">1010138554</PNo><adProtection xsi:type=\"xsd:int\">0</adProtection><companyId xsi:type=\"xsd:int\">162848074</companyId><companyType xsi:type=\"xsd:string\">VI</companyType><cvrNo xsi:type=\"xsd:int\">27378560</cvrNo><district xsi:type=\"xsd:string\">Taastrup</district><fax xsi:type=\"xsd:string\" xsi:nil=\"1\"/><officialName xsi:type=\"xsd:string\">Ikea Ejendomme ApS</officialName><phone xsi:type=\"xsd:string\">70150909</phone><street xsi:type=\"xsd:string\">M\xC3\xA5rk\xC3\xA6rvej 15</street><tdcId xsi:type=\"xsd:int\">101897006</tdcId><zipCode xsi:type=\"xsd:int\">2630</zipCode></ns0:CompanyBasic><ns0:CompanyBasic id=\"ID12\" xsi:type=\"ns0:CompanyBasic\"><PNo xsi:type=\"xsd:int\">1012507026</PNo><adProtection xsi:type=\"xsd:int\">0</adProtection><companyId xsi:type=\"xsd:int\">162910733</companyId><companyType xsi:type=\"xsd:string\">VI</companyType><cvrNo xsi:type=\"xsd:int\">29776210</cvrNo><district xsi:type=\"xsd:string\">Taastrup</district><fax xsi:type=\"xsd:string\" xsi:nil=\"1\"/><officialName xsi:type=\"xsd:string\">Ikea Gentofte ApS</officialName><phone xsi:type=\"xsd:string\" xsi:nil=\"1\"/><street xsi:type=\"xsd:string\">M\xC3\xA5rk\xC3\xA6rvej 15</street><tdcId xsi:type=\"xsd:int\">202158429</tdcId><zipCode xsi:type=\"xsd:int\">2630</zipCode></ns0:CompanyBasic><ns0:CompanyBasic id=\"ID13\" xsi:type=\"ns0:CompanyBasic\"><PNo xsi:type=\"xsd:int\">0</PNo><adProtection xsi:type=\"xsd:int\">0</adProtection><companyId xsi:type=\"xsd:int\">901351</companyId><companyType xsi:type=\"xsd:string\">PL</companyType><cvrNo xsi:type=\"xsd:int\">20451874</cvrNo><district xsi:type=\"xsd:string\">Taastrup</district><fax xsi:type=\"xsd:string\">43590389</fax><officialName xsi:type=\"xsd:string\">Ikea Handels Ag</officialName><phone xsi:type=\"xsd:string\">70150909</phone><street xsi:type=\"xsd:string\">M\xC3\xA5rk\xC3\xA6rvej 15</street><tdcId xsi:type=\"xsd:int\">100406521</tdcId><zipCode xsi:type=\"xsd:int\">2630</zipCode></ns0:CompanyBasic></env:Body></env:Envelope>"
+    http_version: "1.1"
+  recorded_at: Tue, 08 May 2012 13:03:46 GMT
+- request: 
+    method: get
+    uri: http://service.nnerhverv.dk/nne-ws/3.1/NNE?WSDL
+    body: 
+      string: ""
+    headers: 
+      accept: 
+      - "*/*"
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      content-type: 
+      - text/xml
+      date: 
+      - Tue, 08 May 2012 13:03:46 GMT
+      x-powered-by: 
+      - ASP.NET
+      server: 
+      - Microsoft-IIS/6.0
+      connection: 
+      - close
+    body: 
+      string: |-
+        <?xml version="1.0" encoding="UTF-8"?>
+        <definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://com.stibo.net/nne/3.1/NNE" xmlns:ns2="http://com.stibo.net/nne/3.1/Types/NNE" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="NNE" targetNamespace="http://com.stibo.net/nne/3.1/NNE">
+          <types>
+            <schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://com.stibo.net/nne/3.1/Types/NNE" xmlns:soap11-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://com.stibo.net/nne/3.1/Types/NNE">
+              <import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+              <complexType name="Company">
+                <sequence>
+                  <element name="PNo" type="int"/>
+                  <element name="adProtection" type="int"/>
+                  <element name="bankConnection" type="string"/>
+                  <element name="companyForm" type="string"/>
+                  <element name="companyId" type="int"/>
+                  <element name="companyType" type="string"/>
+                  <element name="cvrNo" type="int"/>
+                  <element name="district" type="string"/>
+                  <element name="dsSizeCode" type="string"/>
+                  <element name="dsSizeCodeBranch" type="string"/>
+                  <element name="email" type="string"/>
+                  <element name="fax" type="string"/>
+                  <element name="foundedYear" type="string"/>
+                  <element name="geography" type="tns:KVH"/>
+                  <element name="homePage" type="string"/>
+                  <element name="legalEntity" type="int"/>
+                  <element name="linkDebtor" type="string"/>
+                  <element name="linkGroupHierarchy" type="string"/>
+                  <element name="linkMap" type="string"/>
+                  <element name="linkNews" type="string"/>
+                  <element name="numberOfEmployees" type="int"/>
+                  <element name="numberOfEmployeesBranch" type="int"/>
+                  <element name="officialName" type="string"/>
+                  <element name="parentCompany" type="boolean"/>
+                  <element name="phone" type="string"/>
+                  <element name="statusText" type="string"/>
+                  <element name="statusValue" type="int"/>
+                  <element name="stockQuotation" type="string"/>
+                  <element name="street" type="string"/>
+                  <element name="subscriptionRules" type="string"/>
+                  <element name="tdcId" type="int"/>
+                  <element name="tdfName" type="string"/>
+                  <element name="updateDate" type="string"/>
+                  <element name="zipCode" type="int"/></sequence></complexType>
+              <complexType name="KVH">
+                <sequence>
+                  <element name="houseNo" type="string"/>
+                  <element name="municipalityCode" type="int"/>
+                  <element name="streetCode" type="int"/></sequence></complexType>
+              <complexType name="ArrayOfAccountant">
+                <complexContent>
+                  <restriction base="soap11-enc:Array">
+                    <attribute ref="soap11-enc:arrayType" wsdl:arrayType="tns:Accountant[]"/></restriction></complexContent></complexType>
+              <complexType name="Accountant">
+                <sequence>
+                  <element name="district" type="string"/>
+                  <element name="name" type="string"/>
+                  <element name="zipCode" type="int"/></sequence></complexType>
+              <complexType name="ArrayOfstring">
+                <complexContent>
+                  <restriction base="soap11-enc:Array">
+                    <attribute ref="soap11-enc:arrayType" wsdl:arrayType="string[]"/></restriction></complexContent></complexType>
+              <complexType name="ArrayOfSubsidiary">
+                <complexContent>
+                  <restriction base="soap11-enc:Array">
+                    <attribute ref="soap11-enc:arrayType" wsdl:arrayType="tns:Subsidiary[]"/></restriction></complexContent></complexType>
+              <complexType name="Subsidiary">
+                <sequence>
+                  <element name="country" type="string"/>
+                  <element name="name" type="string"/>
+                  <element name="share" type="string"/>
+                  <element name="tdcId" type="int"/></sequence></complexType>
+              <complexType name="ArrayOfBank">
+                <complexContent>
+                  <restriction base="soap11-enc:Array">
+                    <attribute ref="soap11-enc:arrayType" wsdl:arrayType="tns:Bank[]"/></restriction></complexContent></complexType>
+              <complexType name="Bank">
+                <sequence>
+                  <element name="name" type="string"/></sequence></complexType>
+              <complexType name="ArrayOfCategory">
+                <complexContent>
+                  <restriction base="soap11-enc:Array">
+                    <attribute ref="soap11-enc:arrayType" wsdl:arrayType="tns:Category[]"/></restriction></complexContent></complexType>
+              <complexType name="Category">
+                <sequence>
+                  <element name="category" type="string"/>
+                  <element name="categoryCode" type="int"/></sequence></complexType>
+              <complexType name="ArrayOfDecisionMaker">
+                <complexContent>
+                  <restriction base="soap11-enc:Array">
+                    <attribute ref="soap11-enc:arrayType" wsdl:arrayType="tns:DecisionMaker[]"/></restriction></complexContent></complexType>
+              <complexType name="DecisionMaker">
+                <sequence>
+                  <element name="firstName" type="string"/>
+                  <element name="group" type="string"/>
+                  <element name="id" type="int"/>
+                  <element name="lastName" type="string"/>
+                  <element name="title" type="string"/></sequence></complexType>
+              <complexType name="ArrayOfFinance">
+                <complexContent>
+                  <restriction base="soap11-enc:Array">
+                    <attribute ref="soap11-enc:arrayType" wsdl:arrayType="tns:Finance[]"/></restriction></complexContent></complexType>
+              <complexType name="Finance">
+                <sequence>
+                  <element name="accountingDate" type="string"/>
+                  <element name="assets" type="float"/>
+                  <element name="availableFunds" type="float"/>
+                  <element name="availableFundsRatio" type="float"/>
+                  <element name="balance" type="float"/>
+                  <element name="capacityRatio" type="float"/>
+                  <element name="contributionRatio" type="float"/>
+                  <element name="creditRating" type="string"/>
+                  <element name="currentAssets" type="float"/>
+                  <element name="depreciations" type="float"/>
+                  <element name="fixedAssets" type="float"/>
+                  <element name="fixedCost" type="float"/>
+                  <element name="grossProfit" type="float"/>
+                  <element name="incomeBeforeIncomeTax" type="float"/>
+                  <element name="linkPDF" type="string"/>
+                  <element name="longTermedLiability" type="float"/>
+                  <element name="lotsAndSites" type="float"/>
+                  <element name="netOutcome" type="float"/>
+                  <element name="numberOfEmployees" type="int"/>
+                  <element name="placings" type="float"/>
+                  <element name="profit" type="float"/>
+                  <element name="profitForTheYear" type="float"/>
+                  <element name="profitRatio" type="float"/>
+                  <element name="publishedDate" type="string"/>
+                  <element name="returnOnAssets" type="float"/>
+                  <element name="shareHoldersFundsOfInterest" type="float"/>
+                  <element name="shareholdersFunds" type="float"/>
+                  <element name="shortTermedLiability" type="float"/>
+                  <element name="solvencyRatio" type="float"/>
+                  <element name="stock" type="float"/>
+                  <element name="tradeDebitors" type="float"/>
+                  <element name="turnover" type="float"/>
+                  <element name="year" type="string"/></sequence></complexType>
+              <complexType name="ArrayOfOwnership">
+                <complexContent>
+                  <restriction base="soap11-enc:Array">
+                    <attribute ref="soap11-enc:arrayType" wsdl:arrayType="tns:Ownership[]"/></restriction></complexContent></complexType>
+              <complexType name="Ownership">
+                <sequence>
+                  <element name="country" type="string"/>
+                  <element name="name" type="string"/>
+                  <element name="share" type="string"/>
+                  <element name="tdcId" type="int"/></sequence></complexType>
+              <complexType name="ArrayOfTrade">
+                <complexContent>
+                  <restriction base="soap11-enc:Array">
+                    <attribute ref="soap11-enc:arrayType" wsdl:arrayType="tns:Trade[]"/></restriction></complexContent></complexType>
+              <complexType name="Trade">
+                <sequence>
+                  <element name="primary" type="boolean"/>
+                  <element name="trade" type="string"/>
+                  <element name="tradeCode" type="string"/></sequence></complexType>
+              <complexType name="ArrayOfValueText">
+                <complexContent>
+                  <restriction base="soap11-enc:Array">
+                    <attribute ref="soap11-enc:arrayType" wsdl:arrayType="tns:ValueText[]"/></restriction></complexContent></complexType>
+              <complexType name="ValueText">
+                <sequence>
+                  <element name="text" type="string"/>
+                  <element name="value" type="int"/></sequence></complexType>
+              <complexType name="ArrayOfKeyText">
+                <complexContent>
+                  <restriction base="soap11-enc:Array">
+                    <attribute ref="soap11-enc:arrayType" wsdl:arrayType="tns:KeyText[]"/></restriction></complexContent></complexType>
+              <complexType name="KeyText">
+                <sequence>
+                  <element name="key" type="string"/>
+                  <element name="text" type="string"/></sequence></complexType>
+              <complexType name="ArrayOfKeyInterval">
+                <complexContent>
+                  <restriction base="soap11-enc:Array">
+                    <attribute ref="soap11-enc:arrayType" wsdl:arrayType="tns:KeyInterval[]"/></restriction></complexContent></complexType>
+              <complexType name="KeyInterval">
+                <sequence>
+                  <element name="key" type="string"/>
+                  <element name="valueFrom" type="int"/>
+                  <element name="valueTo" type="int"/></sequence></complexType>
+              <complexType name="Question">
+                <sequence>
+                  <element name="cvrNo" type="int"/>
+                  <element name="district" type="string"/>
+                  <element name="houseNo" type="string"/>
+                  <element name="name" type="string"/>
+                  <element name="nameStartsWith" type="boolean"/>
+                  <element name="phone" type="string"/>
+                  <element name="street" type="string"/>
+                  <element name="streetStartsWith" type="boolean"/>
+                  <element name="tdcId" type="int"/>
+                  <element name="zipCode" type="int"/></sequence></complexType>
+              <complexType name="QuestionTargetGroup">
+                <complexContent>
+                  <extension base="tns:Question">
+                    <sequence>
+                      <element name="PNo" type="int"/>
+                      <element name="accountantName" type="string"/>
+                      <element name="accountantZipCode" type="int"/>
+                      <element name="areaCodes" type="string"/>
+                      <element name="balanceFrom" type="int"/>
+                      <element name="balanceTo" type="int"/>
+                      <element name="bankConnection" type="string"/>
+                      <element name="category" type="string"/>
+                      <element name="categoryCode" type="int"/>
+                      <element name="categoryCodeList" type="string"/>
+                      <element name="companyFormCodeList" type="string"/>
+                      <element name="companyStatus" type="string"/>
+                      <element name="contributionRatioFrom" type="int"/>
+                      <element name="contributionRatioTo" type="int"/>
+                      <element name="countyCodes" type="string"/>
+                      <element name="decisionMaker" type="string"/>
+                      <element name="dsSizeCodeBranchFrom" type="string"/>
+                      <element name="dsSizeCodeBranchTo" type="string"/>
+                      <element name="email" type="string"/>
+                      <element name="foundedFrom" type="string"/>
+                      <element name="foundedTo" type="string"/>
+                      <element name="functionArea" type="int"/>
+                      <element name="grossProfitFrom" type="int"/>
+                      <element name="grossProfitTo" type="int"/>
+                      <element name="hasPhoneOnly" type="boolean"/>
+                      <element name="homePage" type="string"/>
+                      <element name="incomeBeforeIncomeTaxFrom" type="int"/>
+                      <element name="incomeBeforeIncomeTaxTo" type="int"/>
+                      <element name="legalEntitiesOnly" type="boolean"/>
+                      <element name="municipalityCodes" type="string"/>
+                      <element name="netResultFrom" type="int"/>
+                      <element name="netResultTo" type="int"/>
+                      <element name="noOfEmployeesFrom" type="int"/>
+                      <element name="noOfEmployeesTo" type="int"/>
+                      <element name="profitRatioFrom" type="int"/>
+                      <element name="profitRatioTo" type="int"/>
+                      <element name="registredCompaniesOnly" type="boolean"/>
+                      <element name="shareholdersFundFrom" type="int"/>
+                      <element name="shareholdersFundTo" type="int"/>
+                      <element name="trade" type="string"/>
+                      <element name="tradeCode" type="string"/>
+                      <element name="tradeCodeFrom" type="string"/>
+                      <element name="tradeCodeList" type="string"/>
+                      <element name="tradeCodeTo" type="string"/>
+                      <element name="tradeGroup" type="string"/>
+                      <element name="tradeGroupList" type="string"/>
+                      <element name="turnoverFrom" type="int"/>
+                      <element name="turnoverTo" type="int"/>
+                      <element name="updateDateFrom" type="string"/>
+                      <element name="updateDateTo" type="string"/>
+                      <element name="zipCodes" type="string"/></sequence></extension></complexContent></complexType>
+              <complexType name="Answer">
+                <sequence>
+                  <element name="companyBasic" type="tns:ArrayOfCompanyBasic"/>
+                  <element name="errorMessage" type="string"/>
+                  <element name="window" type="tns:Window"/></sequence></complexType>
+              <complexType name="ArrayOfCompanyBasic">
+                <complexContent>
+                  <restriction base="soap11-enc:Array">
+                    <attribute ref="soap11-enc:arrayType" wsdl:arrayType="tns:CompanyBasic[]"/></restriction></complexContent></complexType>
+              <complexType name="CompanyBasic">
+                <sequence>
+                  <element name="PNo" type="int"/>
+                  <element name="adProtection" type="int"/>
+                  <element name="companyId" type="int"/>
+                  <element name="companyType" type="string"/>
+                  <element name="cvrNo" type="int"/>
+                  <element name="district" type="string"/>
+                  <element name="fax" type="string"/>
+                  <element name="officialName" type="string"/>
+                  <element name="phone" type="string"/>
+                  <element name="street" type="string"/>
+                  <element name="tdcId" type="int"/>
+                  <element name="zipCode" type="int"/></sequence></complexType>
+              <complexType name="Window">
+                <sequence>
+                  <element name="currentPage" type="int"/>
+                  <element name="from" type="int"/>
+                  <element name="to" type="int"/>
+                  <element name="total" type="int"/>
+                  <element name="totalPages" type="int"/></sequence></complexType></schema></types>
+          <message name="NNE_PortType_fetchCompany">
+            <part name="int_1" type="xsd:int"/>
+            <part name="int_2" type="xsd:int"/>
+            <part name="String_3" type="xsd:string"/>
+            <part name="String_4" type="xsd:string"/></message>
+          <message name="NNE_PortType_fetchCompanyResponse">
+            <part name="result" type="ns2:Company"/></message>
+          <message name="NNE_PortType_fetchCompanyAccountants">
+            <part name="int_1" type="xsd:int"/>
+            <part name="int_2" type="xsd:int"/>
+            <part name="String_3" type="xsd:string"/>
+            <part name="String_4" type="xsd:string"/></message>
+          <message name="NNE_PortType_fetchCompanyAccountantsResponse">
+            <part name="result" type="ns2:ArrayOfAccountant"/></message>
+          <message name="NNE_PortType_fetchCompanyAdditionalNames">
+            <part name="int_1" type="xsd:int"/>
+            <part name="int_2" type="xsd:int"/>
+            <part name="String_3" type="xsd:string"/>
+            <part name="String_4" type="xsd:string"/></message>
+          <message name="NNE_PortType_fetchCompanyAdditionalNamesResponse">
+            <part name="result" type="ns2:ArrayOfstring"/></message>
+          <message name="NNE_PortType_fetchCompanyAssociates">
+            <part name="int_1" type="xsd:int"/>
+            <part name="int_2" type="xsd:int"/>
+            <part name="String_3" type="xsd:string"/>
+            <part name="String_4" type="xsd:string"/></message>
+          <message name="NNE_PortType_fetchCompanyAssociatesResponse">
+            <part name="result" type="ns2:ArrayOfSubsidiary"/></message>
+          <message name="NNE_PortType_fetchCompanyBankConnections">
+            <part name="int_1" type="xsd:int"/>
+            <part name="int_2" type="xsd:int"/>
+            <part name="String_3" type="xsd:string"/>
+            <part name="String_4" type="xsd:string"/></message>
+          <message name="NNE_PortType_fetchCompanyBankConnectionsResponse">
+            <part name="result" type="ns2:ArrayOfBank"/></message>
+          <message name="NNE_PortType_fetchCompanyCategories">
+            <part name="int_1" type="xsd:int"/>
+            <part name="int_2" type="xsd:int"/>
+            <part name="String_3" type="xsd:string"/>
+            <part name="String_4" type="xsd:string"/></message>
+          <message name="NNE_PortType_fetchCompanyCategoriesResponse">
+            <part name="result" type="ns2:ArrayOfCategory"/></message>
+          <message name="NNE_PortType_fetchCompanyCreditRating">
+            <part name="int_1" type="xsd:int"/>
+            <part name="int_2" type="xsd:int"/>
+            <part name="String_3" type="xsd:string"/>
+            <part name="String_4" type="xsd:string"/></message>
+          <message name="NNE_PortType_fetchCompanyCreditRatingResponse">
+            <part name="result" type="xsd:string"/></message>
+          <message name="NNE_PortType_fetchCompanyDecisionmakers">
+            <part name="int_1" type="xsd:int"/>
+            <part name="int_2" type="xsd:int"/>
+            <part name="String_3" type="xsd:string"/>
+            <part name="String_4" type="xsd:string"/></message>
+          <message name="NNE_PortType_fetchCompanyDecisionmakersResponse">
+            <part name="result" type="ns2:ArrayOfDecisionMaker"/></message>
+          <message name="NNE_PortType_fetchCompanyFinance">
+            <part name="int_1" type="xsd:int"/>
+            <part name="int_2" type="xsd:int"/>
+            <part name="String_3" type="xsd:string"/>
+            <part name="String_4" type="xsd:string"/></message>
+          <message name="NNE_PortType_fetchCompanyFinanceResponse">
+            <part name="result" type="ns2:ArrayOfFinance"/></message>
+          <message name="NNE_PortType_fetchCompanyOwnership">
+            <part name="int_1" type="xsd:int"/>
+            <part name="int_2" type="xsd:int"/>
+            <part name="String_3" type="xsd:string"/>
+            <part name="String_4" type="xsd:string"/></message>
+          <message name="NNE_PortType_fetchCompanyOwnershipResponse">
+            <part name="result" type="ns2:ArrayOfOwnership"/></message>
+          <message name="NNE_PortType_fetchCompanySubsidiaries">
+            <part name="int_1" type="xsd:int"/>
+            <part name="int_2" type="xsd:int"/>
+            <part name="String_3" type="xsd:string"/>
+            <part name="String_4" type="xsd:string"/></message>
+          <message name="NNE_PortType_fetchCompanySubsidiariesResponse">
+            <part name="result" type="ns2:ArrayOfSubsidiary"/></message>
+          <message name="NNE_PortType_fetchCompanyTrade">
+            <part name="int_1" type="xsd:int"/>
+            <part name="int_2" type="xsd:int"/>
+            <part name="String_3" type="xsd:string"/>
+            <part name="String_4" type="xsd:string"/></message>
+          <message name="NNE_PortType_fetchCompanyTradeResponse">
+            <part name="result" type="ns2:ArrayOfTrade"/></message>
+          <message name="NNE_PortType_lookupAreaCodes"/>
+          <message name="NNE_PortType_lookupAreaCodesResponse">
+            <part name="result" type="ns2:ArrayOfValueText"/></message>
+          <message name="NNE_PortType_lookupCategoryCodes"/>
+          <message name="NNE_PortType_lookupCategoryCodesResponse">
+            <part name="result" type="ns2:ArrayOfValueText"/></message>
+          <message name="NNE_PortType_lookupCompanyForms"/>
+          <message name="NNE_PortType_lookupCompanyFormsResponse">
+            <part name="result" type="ns2:ArrayOfKeyText"/></message>
+          <message name="NNE_PortType_lookupCompanyStatus"/>
+          <message name="NNE_PortType_lookupCompanyStatusResponse">
+            <part name="result" type="ns2:ArrayOfKeyText"/></message>
+          <message name="NNE_PortType_lookupCountyCodes"/>
+          <message name="NNE_PortType_lookupCountyCodesResponse">
+            <part name="result" type="ns2:ArrayOfValueText"/></message>
+          <message name="NNE_PortType_lookupCreditRatings"/>
+          <message name="NNE_PortType_lookupCreditRatingsResponse">
+            <part name="result" type="ns2:ArrayOfKeyText"/></message>
+          <message name="NNE_PortType_lookupDsSizeCodes"/>
+          <message name="NNE_PortType_lookupDsSizeCodesResponse">
+            <part name="result" type="ns2:ArrayOfKeyInterval"/></message>
+          <message name="NNE_PortType_lookupFunctionAreas"/>
+          <message name="NNE_PortType_lookupFunctionAreasResponse">
+            <part name="result" type="ns2:ArrayOfValueText"/></message>
+          <message name="NNE_PortType_lookupMunicipalityCodes"/>
+          <message name="NNE_PortType_lookupMunicipalityCodesResponse">
+            <part name="result" type="ns2:ArrayOfValueText"/></message>
+          <message name="NNE_PortType_lookupTradeCodes"/>
+          <message name="NNE_PortType_lookupTradeCodesResponse">
+            <part name="result" type="ns2:ArrayOfKeyText"/></message>
+          <message name="NNE_PortType_lookupTradeGroups"/>
+          <message name="NNE_PortType_lookupTradeGroupsResponse">
+            <part name="result" type="ns2:ArrayOfKeyText"/></message>
+          <message name="NNE_PortType_search">
+            <part name="Question_1" type="ns2:Question"/>
+            <part name="int_2" type="xsd:int"/>
+            <part name="int_3" type="xsd:int"/>
+            <part name="int_4" type="xsd:int"/>
+            <part name="String_5" type="xsd:string"/></message>
+          <message name="NNE_PortType_searchResponse">
+            <part name="result" type="ns2:Answer"/></message>
+          <message name="NNE_PortType_searchTargetGroup">
+            <part name="QuestionTargetGroup_1" type="ns2:QuestionTargetGroup"/>
+            <part name="int_2" type="xsd:int"/>
+            <part name="int_3" type="xsd:int"/>
+            <part name="int_4" type="xsd:int"/>
+            <part name="String_5" type="xsd:string"/></message>
+          <message name="NNE_PortType_searchTargetGroupResponse">
+            <part name="result" type="ns2:Answer"/></message>
+          <portType name="NNE_PortType">
+            <operation name="fetchCompany" parameterOrder="int_1 int_2 String_3 String_4">
+              <input message="tns:NNE_PortType_fetchCompany"/>
+              <output message="tns:NNE_PortType_fetchCompanyResponse"/></operation>
+            <operation name="fetchCompanyAccountants" parameterOrder="int_1 int_2 String_3 String_4">
+              <input message="tns:NNE_PortType_fetchCompanyAccountants"/>
+              <output message="tns:NNE_PortType_fetchCompanyAccountantsResponse"/></operation>
+            <operation name="fetchCompanyAdditionalNames" parameterOrder="int_1 int_2 String_3 String_4">
+              <input message="tns:NNE_PortType_fetchCompanyAdditionalNames"/>
+              <output message="tns:NNE_PortType_fetchCompanyAdditionalNamesResponse"/></operation>
+            <operation name="fetchCompanyAssociates" parameterOrder="int_1 int_2 String_3 String_4">
+              <input message="tns:NNE_PortType_fetchCompanyAssociates"/>
+              <output message="tns:NNE_PortType_fetchCompanyAssociatesResponse"/></operation>
+            <operation name="fetchCompanyBankConnections" parameterOrder="int_1 int_2 String_3 String_4">
+              <input message="tns:NNE_PortType_fetchCompanyBankConnections"/>
+              <output message="tns:NNE_PortType_fetchCompanyBankConnectionsResponse"/></operation>
+            <operation name="fetchCompanyCategories" parameterOrder="int_1 int_2 String_3 String_4">
+              <input message="tns:NNE_PortType_fetchCompanyCategories"/>
+              <output message="tns:NNE_PortType_fetchCompanyCategoriesResponse"/></operation>
+            <operation name="fetchCompanyCreditRating" parameterOrder="int_1 int_2 String_3 String_4">
+              <input message="tns:NNE_PortType_fetchCompanyCreditRating"/>
+              <output message="tns:NNE_PortType_fetchCompanyCreditRatingResponse"/></operation>
+            <operation name="fetchCompanyDecisionmakers" parameterOrder="int_1 int_2 String_3 String_4">
+              <input message="tns:NNE_PortType_fetchCompanyDecisionmakers"/>
+              <output message="tns:NNE_PortType_fetchCompanyDecisionmakersResponse"/></operation>
+            <operation name="fetchCompanyFinance" parameterOrder="int_1 int_2 String_3 String_4">
+              <input message="tns:NNE_PortType_fetchCompanyFinance"/>
+              <output message="tns:NNE_PortType_fetchCompanyFinanceResponse"/></operation>
+            <operation name="fetchCompanyOwnership" parameterOrder="int_1 int_2 String_3 String_4">
+              <input message="tns:NNE_PortType_fetchCompanyOwnership"/>
+              <output message="tns:NNE_PortType_fetchCompanyOwnershipResponse"/></operation>
+            <operation name="fetchCompanySubsidiaries" parameterOrder="int_1 int_2 String_3 String_4">
+              <input message="tns:NNE_PortType_fetchCompanySubsidiaries"/>
+              <output message="tns:NNE_PortType_fetchCompanySubsidiariesResponse"/></operation>
+            <operation name="fetchCompanyTrade" parameterOrder="int_1 int_2 String_3 String_4">
+              <input message="tns:NNE_PortType_fetchCompanyTrade"/>
+              <output message="tns:NNE_PortType_fetchCompanyTradeResponse"/></operation>
+            <operation name="lookupAreaCodes">
+              <input message="tns:NNE_PortType_lookupAreaCodes"/>
+              <output message="tns:NNE_PortType_lookupAreaCodesResponse"/></operation>
+            <operation name="lookupCategoryCodes">
+              <input message="tns:NNE_PortType_lookupCategoryCodes"/>
+              <output message="tns:NNE_PortType_lookupCategoryCodesResponse"/></operation>
+            <operation name="lookupCompanyForms">
+              <input message="tns:NNE_PortType_lookupCompanyForms"/>
+              <output message="tns:NNE_PortType_lookupCompanyFormsResponse"/></operation>
+            <operation name="lookupCompanyStatus">
+              <input message="tns:NNE_PortType_lookupCompanyStatus"/>
+              <output message="tns:NNE_PortType_lookupCompanyStatusResponse"/></operation>
+            <operation name="lookupCountyCodes">
+              <input message="tns:NNE_PortType_lookupCountyCodes"/>
+              <output message="tns:NNE_PortType_lookupCountyCodesResponse"/></operation>
+            <operation name="lookupCreditRatings">
+              <input message="tns:NNE_PortType_lookupCreditRatings"/>
+              <output message="tns:NNE_PortType_lookupCreditRatingsResponse"/></operation>
+            <operation name="lookupDsSizeCodes">
+              <input message="tns:NNE_PortType_lookupDsSizeCodes"/>
+              <output message="tns:NNE_PortType_lookupDsSizeCodesResponse"/></operation>
+            <operation name="lookupFunctionAreas">
+              <input message="tns:NNE_PortType_lookupFunctionAreas"/>
+              <output message="tns:NNE_PortType_lookupFunctionAreasResponse"/></operation>
+            <operation name="lookupMunicipalityCodes">
+              <input message="tns:NNE_PortType_lookupMunicipalityCodes"/>
+              <output message="tns:NNE_PortType_lookupMunicipalityCodesResponse"/></operation>
+            <operation name="lookupTradeCodes">
+              <input message="tns:NNE_PortType_lookupTradeCodes"/>
+              <output message="tns:NNE_PortType_lookupTradeCodesResponse"/></operation>
+            <operation name="lookupTradeGroups">
+              <input message="tns:NNE_PortType_lookupTradeGroups"/>
+              <output message="tns:NNE_PortType_lookupTradeGroupsResponse"/></operation>
+            <operation name="search" parameterOrder="Question_1 int_2 int_3 int_4 String_5">
+              <input message="tns:NNE_PortType_search"/>
+              <output message="tns:NNE_PortType_searchResponse"/></operation>
+            <operation name="searchTargetGroup" parameterOrder="QuestionTargetGroup_1 int_2 int_3 int_4 String_5">
+              <input message="tns:NNE_PortType_searchTargetGroup"/>
+              <output message="tns:NNE_PortType_searchTargetGroupResponse"/></operation></portType>
+          <binding name="NNE_PortTypeBinding" type="tns:NNE_PortType">
+            <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc"/>
+            <operation name="fetchCompany">
+              <soap:operation soapAction=""/>
+              <input>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></input>
+              <output>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></output></operation>
+            <operation name="fetchCompanyAccountants">
+              <soap:operation soapAction=""/>
+              <input>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></input>
+              <output>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></output></operation>
+            <operation name="fetchCompanyAdditionalNames">
+              <soap:operation soapAction=""/>
+              <input>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></input>
+              <output>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></output></operation>
+            <operation name="fetchCompanyAssociates">
+              <soap:operation soapAction=""/>
+              <input>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></input>
+              <output>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></output></operation>
+            <operation name="fetchCompanyBankConnections">
+              <soap:operation soapAction=""/>
+              <input>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></input>
+              <output>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></output></operation>
+            <operation name="fetchCompanyCategories">
+              <soap:operation soapAction=""/>
+              <input>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></input>
+              <output>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></output></operation>
+            <operation name="fetchCompanyCreditRating">
+              <soap:operation soapAction=""/>
+              <input>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></input>
+              <output>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></output></operation>
+            <operation name="fetchCompanyDecisionmakers">
+              <soap:operation soapAction=""/>
+              <input>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></input>
+              <output>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></output></operation>
+            <operation name="fetchCompanyFinance">
+              <soap:operation soapAction=""/>
+              <input>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></input>
+              <output>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></output></operation>
+            <operation name="fetchCompanyOwnership">
+              <soap:operation soapAction=""/>
+              <input>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></input>
+              <output>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></output></operation>
+            <operation name="fetchCompanySubsidiaries">
+              <soap:operation soapAction=""/>
+              <input>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></input>
+              <output>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></output></operation>
+            <operation name="fetchCompanyTrade">
+              <soap:operation soapAction=""/>
+              <input>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></input>
+              <output>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></output></operation>
+            <operation name="lookupAreaCodes">
+              <soap:operation soapAction=""/>
+              <input>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></input>
+              <output>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></output></operation>
+            <operation name="lookupCategoryCodes">
+              <soap:operation soapAction=""/>
+              <input>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></input>
+              <output>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></output></operation>
+            <operation name="lookupCompanyForms">
+              <soap:operation soapAction=""/>
+              <input>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></input>
+              <output>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></output></operation>
+            <operation name="lookupCompanyStatus">
+              <soap:operation soapAction=""/>
+              <input>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></input>
+              <output>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></output></operation>
+            <operation name="lookupCountyCodes">
+              <soap:operation soapAction=""/>
+              <input>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></input>
+              <output>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></output></operation>
+            <operation name="lookupCreditRatings">
+              <soap:operation soapAction=""/>
+              <input>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></input>
+              <output>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></output></operation>
+            <operation name="lookupDsSizeCodes">
+              <soap:operation soapAction=""/>
+              <input>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></input>
+              <output>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></output></operation>
+            <operation name="lookupFunctionAreas">
+              <soap:operation soapAction=""/>
+              <input>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></input>
+              <output>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></output></operation>
+            <operation name="lookupMunicipalityCodes">
+              <soap:operation soapAction=""/>
+              <input>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></input>
+              <output>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></output></operation>
+            <operation name="lookupTradeCodes">
+              <soap:operation soapAction=""/>
+              <input>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></input>
+              <output>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></output></operation>
+            <operation name="lookupTradeGroups">
+              <soap:operation soapAction=""/>
+              <input>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></input>
+              <output>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></output></operation>
+            <operation name="search">
+              <soap:operation soapAction=""/>
+              <input>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></input>
+              <output>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></output></operation>
+            <operation name="searchTargetGroup">
+              <soap:operation soapAction=""/>
+              <input>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></input>
+              <output>
+                <soap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" use="encoded" namespace="http://com.stibo.net/nne/3.1/NNE"/></output></operation></binding>
+          <service name="NNE">
+            <port name="NNE_PortTypePort" binding="tns:NNE_PortTypeBinding">
+              <soap:address xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" location="http://service.nnerhverv.dk:80/nne-ws/3.1/NNE"/></port></service></definitions>
+    http_version: "1.1"
+  recorded_at: Tue, 08 May 2012 13:03:47 GMT
+- request: 
+    method: post
+    uri: http://service.nnerhverv.dk/nne-ws/3.1/NNE
+    body: 
+      string: <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:wsdl="http://com.stibo.net/nne/3.1/NNE" xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ins0="http://com.stibo.net/nne/3.1/Types/NNE" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><env:Body><wsdl:fetchCompanyFinance env:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"><int_1 xsi:type="xsd:int">100311293</int_1><int_2 xsi:type="xsd:int">0</int_2><String_3 xsi:type="xsd:string"></String_3><String_4 xsi:type="xsd:string"></String_4></wsdl:fetchCompanyFinance></env:Body></env:Envelope>
+    headers: 
+      content-type: 
+      - text/xml;charset=UTF-8
+      accept: 
+      - "*/*"
+      content-length: 
+      - "618"
+      soapaction: 
+      - "\"fetchCompanyFinance\""
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      content-type: 
+      - text/xml; charset="utf-8"
+      date: 
+      - Tue, 08 May 2012 13:03:46 GMT
+      x-powered-by: 
+      - ASP.NET
+      server: 
+      - Microsoft-IIS/6.0
+      connection: 
+      - close
+      soapaction: 
+      - "\"\""
+    body: 
+      string: |-
+        <?xml version="1.0" encoding="UTF-8"?>
+        <env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:ns0="http://com.stibo.net/nne/3.1/Types/NNE" env:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"><env:Body><ans1:fetchCompanyFinanceResponse xmlns:ans1="http://com.stibo.net/nne/3.1/NNE"><result href="#ID1"/></ans1:fetchCompanyFinanceResponse><ns0:ArrayOfFinance id="ID1" xsi:type="enc:Array" enc:arrayType="ns0:Finance[5]"><item href="#ID2"/><item href="#ID3"/><item href="#ID4"/><item href="#ID5"/><item href="#ID6"/></ns0:ArrayOfFinance><ns0:Finance id="ID2" xsi:type="ns0:Finance"><accountingDate xsi:type="xsd:string">2011-08-31</accountingDate><assets xsi:type="xsd:float">1729700.0</assets><availableFunds xsi:type="xsd:float">183991.0</availableFunds><availableFundsRatio xsi:type="xsd:float">74.48</availableFundsRatio><balance xsi:type="xsd:float">1729700.0</balance><capacityRatio xsi:type="xsd:float">1.4</capacityRatio><contributionRatio xsi:type="xsd:float">26.02</contributionRatio><creditRating xsi:type="xsd:string" xsi:nil="1"/><currentAssets xsi:type="xsd:float">770605.0</currentAssets><depreciations xsi:type="xsd:float">-37525.0</depreciations><fixedAssets xsi:type="xsd:float">959095.0</fixedAssets><fixedCost xsi:type="xsd:float">562808.0</fixedCost><grossProfit xsi:type="xsd:float">789841.0</grossProfit><incomeBeforeIncomeTax xsi:type="xsd:float">188944.0</incomeBeforeIncomeTax><linkPDF xsi:type="xsd:string">http://www.nnerhverv.dk/nne-perl/regnskab.pl?indid=724796&amp;udtid=2012-01-16&amp;req=1841993994</linkPDF><longTermedLiability xsi:type="xsd:float">488133.0</longTermedLiability><lotsAndSites xsi:type="xsd:float">162650.0</lotsAndSites><netOutcome xsi:type="xsd:float">132718.0</netOutcome><numberOfEmployees xsi:type="xsd:int">1222</numberOfEmployees><placings xsi:type="xsd:float">38837.0</placings><profit xsi:type="xsd:float">130000.0</profit><profitForTheYear xsi:type="xsd:float">132718.0</profitForTheYear><profitRatio xsi:type="xsd:float">7.48</profitRatio><publishedDate xsi:type="xsd:string">2012-01-16</publishedDate><returnOnAssets xsi:type="xsd:float">13.13</returnOnAssets><shareHoldersFundsOfInterest xsi:type="xsd:float">78.96</shareHoldersFundsOfInterest><shareholdersFunds xsi:type="xsd:float">168073.0</shareholdersFunds><shortTermedLiability xsi:type="xsd:float">1034657.0</shortTermedLiability><solvencyRatio xsi:type="xsd:float">9.72</solvencyRatio><stock xsi:type="xsd:float">136101.0</stock><tradeDebitors xsi:type="xsd:float">23232.0</tradeDebitors><turnover xsi:type="xsd:float">3034952.0</turnover><year xsi:type="xsd:string">2011</year></ns0:Finance><ns0:Finance id="ID3" xsi:type="ns0:Finance"><accountingDate xsi:type="xsd:string">2010-08-31</accountingDate><assets xsi:type="xsd:float">1616556.0</assets><availableFunds xsi:type="xsd:float">184758.0</availableFunds><availableFundsRatio xsi:type="xsd:float">78.66</availableFundsRatio><balance xsi:type="xsd:float">1616556.0</balance><capacityRatio xsi:type="xsd:float">1.33</capacityRatio><contributionRatio xsi:type="xsd:float">24.26</contributionRatio><creditRating xsi:type="xsd:string" xsi:nil="1"/><currentAssets xsi:type="xsd:float">1137405.0</currentAssets><depreciations xsi:type="xsd:float">-25013.0</depreciations><fixedAssets xsi:type="xsd:float">479151.0</fixedAssets><fixedCost xsi:type="xsd:float">524697.0</fixedCost><grossProfit xsi:type="xsd:float">698556.0</grossProfit><incomeBeforeIncomeTax xsi:type="xsd:float">185976.0</incomeBeforeIncomeTax><linkPDF xsi:type="xsd:string">http://www.nnerhverv.dk/nne-perl/regnskab.pl?indid=724796&amp;udtid=2010-12-14&amp;req=1841993994</linkPDF><longTermedLiability xsi:type="xsd:float">0.0</longTermedLiability><lotsAndSites xsi:type="xsd:float">121956.0</lotsAndSites><netOutcome xsi:type="xsd:float">142218.0</netOutcome><numberOfEmployees xsi:type="xsd:int">1163</numberOfEmployees><placings xsi:type="xsd:float">10201.0</placings><profit xsi:type="xsd:float">125000.0</profit><profitForTheYear xsi:type="xsd:float">142218.0</profitForTheYear><profitRatio xsi:type="xsd:float">6.04</profitRatio><publishedDate xsi:type="xsd:string">2010-12-14</publishedDate><returnOnAssets xsi:type="xsd:float">10.75</returnOnAssets><shareHoldersFundsOfInterest xsi:type="xsd:float">88.69</shareHoldersFundsOfInterest><shareholdersFunds xsi:type="xsd:float">160354.0</shareholdersFunds><shortTermedLiability xsi:type="xsd:float">1446002.0</shortTermedLiability><solvencyRatio xsi:type="xsd:float">9.92</solvencyRatio><stock xsi:type="xsd:float">126204.0</stock><tradeDebitors xsi:type="xsd:float">30875.0</tradeDebitors><turnover xsi:type="xsd:float">2879665.0</turnover><year xsi:type="xsd:string">2010</year></ns0:Finance><ns0:Finance id="ID4" xsi:type="ns0:Finance"><accountingDate xsi:type="xsd:string">2009-08-31</accountingDate><assets xsi:type="xsd:float">1033498.0</assets><availableFunds xsi:type="xsd:float">19428.0</availableFunds><availableFundsRatio xsi:type="xsd:float">70.72</availableFundsRatio><balance xsi:type="xsd:float">1033498.0</balance><capacityRatio xsi:type="xsd:float">1.37</capacityRatio><contributionRatio xsi:type="xsd:float">22.9</contributionRatio><creditRating xsi:type="xsd:string" xsi:nil="1"/><currentAssets xsi:type="xsd:float">631562.0</currentAssets><depreciations xsi:type="xsd:float">-17775.0</depreciations><fixedAssets xsi:type="xsd:float">401936.0</fixedAssets><fixedCost xsi:type="xsd:float">408903.0</fixedCost><grossProfit xsi:type="xsd:float">561357.0</grossProfit><incomeBeforeIncomeTax xsi:type="xsd:float">159601.0</incomeBeforeIncomeTax><linkPDF xsi:type="xsd:string">http://www.nnerhverv.dk/nne-perl/regnskab.pl?indid=724796&amp;udtid=2009-11-12&amp;req=1841993994</linkPDF><longTermedLiability xsi:type="xsd:float">0.0</longTermedLiability><lotsAndSites xsi:type="xsd:float">129979.0</lotsAndSites><netOutcome xsi:type="xsd:float">121499.0</netOutcome><numberOfEmployees xsi:type="xsd:int">939</numberOfEmployees><placings xsi:type="xsd:float">8319.0</placings><profit xsi:type="xsd:float">114000.0</profit><profitForTheYear xsi:type="xsd:float">121499.0</profitForTheYear><profitRatio xsi:type="xsd:float">6.22</profitRatio><publishedDate xsi:type="xsd:string">2009-11-12</publishedDate><returnOnAssets xsi:type="xsd:float">14.75</returnOnAssets><shareHoldersFundsOfInterest xsi:type="xsd:float">91.95</shareHoldersFundsOfInterest><shareholdersFunds xsi:type="xsd:float">132136.0</shareholdersFunds><shortTermedLiability xsi:type="xsd:float">893042.0</shortTermedLiability><solvencyRatio xsi:type="xsd:float">12.79</solvencyRatio><stock xsi:type="xsd:float">86880.0</stock><tradeDebitors xsi:type="xsd:float">16829.0</tradeDebitors><turnover xsi:type="xsd:float">2451248.0</turnover><year xsi:type="xsd:string">2009</year></ns0:Finance><ns0:Finance id="ID5" xsi:type="ns0:Finance"><accountingDate xsi:type="xsd:string">2008-08-31</accountingDate><assets xsi:type="xsd:float">675148.0</assets><availableFunds xsi:type="xsd:float">118937.0</availableFunds><availableFundsRatio xsi:type="xsd:float">45.13</availableFundsRatio><balance xsi:type="xsd:float">675148.0</balance><capacityRatio xsi:type="xsd:float">1.68</capacityRatio><contributionRatio xsi:type="xsd:float">24.4</contributionRatio><creditRating xsi:type="xsd:string" xsi:nil="1"/><currentAssets xsi:type="xsd:float">295544.0</currentAssets><depreciations xsi:type="xsd:float">-9697.0</depreciations><fixedAssets xsi:type="xsd:float">379604.0</fixedAssets><fixedCost xsi:type="xsd:float">356070.0</fixedCost><grossProfit xsi:type="xsd:float">596974.0</grossProfit><incomeBeforeIncomeTax xsi:type="xsd:float">254050.0</incomeBeforeIncomeTax><linkPDF xsi:type="xsd:string">http://www.nnerhverv.dk/nne-perl/regnskab.pl?indid=724796&amp;udtid=2008-12-05&amp;req=1841993994</linkPDF><longTermedLiability xsi:type="xsd:float">0.0</longTermedLiability><lotsAndSites xsi:type="xsd:float">140024.0</lotsAndSites><netOutcome xsi:type="xsd:float">193918.0</netOutcome><numberOfEmployees xsi:type="xsd:int">868</numberOfEmployees><placings xsi:type="xsd:float">9619.0</placings><profit xsi:type="xsd:float">193000.0</profit><profitForTheYear xsi:type="xsd:float">193918.0</profitForTheYear><profitRatio xsi:type="xsd:float">9.84</profitRatio><publishedDate xsi:type="xsd:string">2008-12-05</publishedDate><returnOnAssets xsi:type="xsd:float">35.68</returnOnAssets><shareHoldersFundsOfInterest xsi:type="xsd:float">200.0</shareHoldersFundsOfInterest><shareholdersFunds xsi:type="xsd:float">10637.0</shareholdersFunds><shortTermedLiability xsi:type="xsd:float">654891.0</shortTermedLiability><solvencyRatio xsi:type="xsd:float">1.58</solvencyRatio><stock xsi:type="xsd:float">84046.0</stock><tradeDebitors xsi:type="xsd:float">17523.0</tradeDebitors><turnover xsi:type="xsd:float">2446979.0</turnover><year xsi:type="xsd:string">2008</year></ns0:Finance><ns0:Finance id="ID6" xsi:type="ns0:Finance"><accountingDate xsi:type="xsd:string">2007-08-31</accountingDate><assets xsi:type="xsd:float">501209.0</assets><availableFunds xsi:type="xsd:float">5041.0</availableFunds><availableFundsRatio xsi:type="xsd:float">26.85</availableFundsRatio><balance xsi:type="xsd:float">501209.0</balance><capacityRatio xsi:type="xsd:float">1.82</capacityRatio><contributionRatio xsi:type="xsd:float">26.11</contributionRatio><creditRating xsi:type="xsd:string" xsi:nil="1"/><currentAssets xsi:type="xsd:float">129541.0</currentAssets><depreciations xsi:type="xsd:float">-12280.0</depreciations><fixedAssets xsi:type="xsd:float">371668.0</fixedAssets><fixedCost xsi:type="xsd:float">309254.0</fixedCost><grossProfit xsi:type="xsd:float">563624.0</grossProfit><incomeBeforeIncomeTax xsi:type="xsd:float">271396.0</incomeBeforeIncomeTax><linkPDF xsi:type="xsd:string">http://www.nnerhverv.dk/nne-perl/regnskab.pl?indid=724796&amp;udtid=2007-12-04&amp;req=1841993994</linkPDF><longTermedLiability xsi:type="xsd:float">0.0</longTermedLiability><lotsAndSites xsi:type="xsd:float">134176.0</lotsAndSites><netOutcome xsi:type="xsd:float">207787.0</netOutcome><numberOfEmployees xsi:type="xsd:int">774</numberOfEmployees><placings xsi:type="xsd:float">9048.0</placings><profit xsi:type="xsd:float">207000.0</profit><profitForTheYear xsi:type="xsd:float">207787.0</profitForTheYear><profitRatio xsi:type="xsd:float">11.78</profitRatio><publishedDate xsi:type="xsd:string">2007-12-04</publishedDate><returnOnAssets xsi:type="xsd:float">50.75</returnOnAssets><shareHoldersFundsOfInterest xsi:type="xsd:float">200.0</shareHoldersFundsOfInterest><shareholdersFunds xsi:type="xsd:float">9719.0</shareholdersFunds><shortTermedLiability xsi:type="xsd:float">482442.0</shortTermedLiability><solvencyRatio xsi:type="xsd:float">1.94</solvencyRatio><stock xsi:type="xsd:float">81838.0</stock><tradeDebitors xsi:type="xsd:float">21446.0</tradeDebitors><turnover xsi:type="xsd:float">2158590.0</turnover><year xsi:type="xsd:string">2007</year></ns0:Finance></env:Body></env:Envelope>
+    http_version: "1.1"
+  recorded_at: Tue, 08 May 2012 13:03:47 GMT
+recorded_with: VCR 2.1.1

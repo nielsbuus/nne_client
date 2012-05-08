@@ -162,6 +162,32 @@ describe NNEClient::Result do
     end
   end
 
+  context 'with no finances' do
+    it "returns an empty array of finances" do
+      soap_vcr('result_no_finance') do
+        NNEClient.search(:name => 'Incremental').first.finances.should be_empty
+      end
+    end
+  end
+
+  context 'with a single finance record' do
+    it "has a finance record" do
+      soap_vcr('result_single_finance') do
+        records = NNEClient.search(:name => 'Etech').first.finances
+        records.map(&:year).should == ['2010']
+      end
+    end
+  end
+
+  context 'with multiple finance records' do
+    it "has several finance records" do
+      soap_vcr('result_multiple_finances') do
+        records = NNEClient.search(:name => 'Ikea').first.finances
+        records.map(&:year).should == ["2011", "2010", "2009", "2008", "2007"]
+      end
+    end
+  end
+
   it "knows all names" do
     soap_vcr('result_names') do
       result = NNEClient::Result.new(:official_name => 'Name', :tdc_id => '100323228')

@@ -60,7 +60,20 @@ module NNEClient
       end
     end
 
+    def finances
+      finances = fetch_finances
+      if finances.kind_of?(Hash)
+        [Finance.new(finances)]
+      else
+        finances.map{|finance| Finance.new(finance) }
+      end
+    end
+
     private
+
+    def fetch_finances
+      Fetch.new(tdc_id, 'fetchCompanyFinance').result_set.to_hash[:finance] || []
+    end
 
     def fetch_subsidiaries
       Fetch.new(tdc_id, 'fetchCompanySubsidiaries').result_set.to_hash[:subsidiary] || []
