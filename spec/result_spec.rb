@@ -91,6 +91,24 @@ describe NNEClient::Result do
     }
   end
 
+  context "with single ownership" do
+    around(:each) do |example|
+      VCR.use_cassette('result_single_ownership', :match_requests_on => [:soap_body_matcher]) do
+        example.run
+      end
+    end
+
+    subject { NNEClient.search(:name => 'Ikea').first }
+
+    its(:ownerships) {
+      should include NNEClient::Ownership.new(
+        :share => '100 ',
+        :name => 'Ingka Holding Scandinavia Bv',
+        :country => 'Holland'
+      )
+    }
+  end
+
   it "knows all names" do
     VCR.use_cassette('result_names', :match_requests_on => [:soap_body_matcher]) do
       result = NNEClient::Result.new(:official_name => 'Name', :tdc_id => '100323228')

@@ -1,4 +1,5 @@
 --- 
+recorded_with: VCR 2.1.1
 http_interactions: 
 - request: 
     method: get
@@ -13,16 +14,16 @@ http_interactions:
       code: 200
       message: OK
     headers: 
+      server: 
+      - Microsoft-IIS/6.0
       x-powered-by: 
       - ASP.NET
       date: 
-      - Tue, 08 May 2012 09:46:48 GMT
-      content-type: 
-      - text/xml
-      server: 
-      - Microsoft-IIS/6.0
+      - Tue, 08 May 2012 09:53:46 GMT
       connection: 
       - close
+      content-type: 
+      - text/xml
     body: 
       string: |-
         <?xml version="1.0" encoding="UTF-8"?>
@@ -665,12 +666,12 @@ http_interactions:
             <port name="NNE_PortTypePort" binding="tns:NNE_PortTypeBinding">
               <soap:address xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" location="http://service.nnerhverv.dk:80/nne-ws/3.1/NNE"/></port></service></definitions>
     http_version: "1.1"
-  recorded_at: Tue, 08 May 2012 09:46:49 GMT
+  recorded_at: Tue, 08 May 2012 09:53:47 GMT
 - request: 
     method: post
     uri: http://service.nnerhverv.dk/nne-ws/3.1/NNE
     body: 
-      string: <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wsdl="http://com.stibo.net/nne/3.1/NNE" xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ins0="http://com.stibo.net/nne/3.1/Types/NNE"><env:Body><wsdl:search env:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"><Question_1 xmlns:nne="http://com.stibo.net/nne/3.1/Types/NNE" xsi:type="nne:Question"><name xsi:type="xsd:string">Ikea</name></Question_1><int_2 xsi:type="xsd:int">10</int_2><int_3 xsi:type="xsd:int">1</int_3><int_4 xsi:type="xsd:int">0</int_4><String_5 xsi:type="xsd:string"></String_5></wsdl:search></env:Body></env:Envelope>
+      string: <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:wsdl="http://com.stibo.net/nne/3.1/NNE" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ins0="http://com.stibo.net/nne/3.1/Types/NNE"><env:Body><wsdl:search env:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"><Question_1 xsi:type="nne:Question" xmlns:nne="http://com.stibo.net/nne/3.1/Types/NNE"><name xsi:type="xsd:string">Ikea</name></Question_1><int_2 xsi:type="xsd:int">10</int_2><int_3 xsi:type="xsd:int">1</int_3><int_4 xsi:type="xsd:int">0</int_4><String_5 xsi:type="xsd:string"></String_5></wsdl:search></env:Body></env:Envelope>
     headers: 
       accept: 
       - "*/*"
@@ -685,23 +686,23 @@ http_interactions:
       code: 200
       message: OK
     headers: 
+      server: 
+      - Microsoft-IIS/6.0
       x-powered-by: 
       - ASP.NET
       date: 
-      - Tue, 08 May 2012 09:46:48 GMT
+      - Tue, 08 May 2012 09:53:47 GMT
+      connection: 
+      - close
       content-type: 
       - text/xml; charset="utf-8"
       soapaction: 
       - "\"\""
-      server: 
-      - Microsoft-IIS/6.0
-      connection: 
-      - close
     body: 
       string: "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n\
         <env:Envelope xmlns:env=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:enc=\"http://schemas.xmlsoap.org/soap/encoding/\" xmlns:ns0=\"http://com.stibo.net/nne/3.1/Types/NNE\" env:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\"><env:Body><ans1:searchResponse xmlns:ans1=\"http://com.stibo.net/nne/3.1/NNE\"><result href=\"#ID1\"/></ans1:searchResponse><ns0:Answer id=\"ID1\" xsi:type=\"ns0:Answer\"><companyBasic href=\"#ID2\"/><errorMessage xsi:type=\"xsd:string\" xsi:nil=\"1\"/><window href=\"#ID3\"/></ns0:Answer><ns0:ArrayOfCompanyBasic id=\"ID2\" xsi:type=\"enc:Array\" enc:arrayType=\"ns0:CompanyBasic[10]\"><item href=\"#ID4\"/><item href=\"#ID5\"/><item href=\"#ID6\"/><item href=\"#ID7\"/><item href=\"#ID8\"/><item href=\"#ID9\"/><item href=\"#ID10\"/><item href=\"#ID11\"/><item href=\"#ID12\"/><item href=\"#ID13\"/></ns0:ArrayOfCompanyBasic><ns0:Window id=\"ID3\" xsi:type=\"ns0:Window\"><currentPage xsi:type=\"xsd:int\">1</currentPage><from xsi:type=\"xsd:int\">1</from><to xsi:type=\"xsd:int\">10</to><total xsi:type=\"xsd:int\">20</total><totalPages xsi:type=\"xsd:int\">2</totalPages></ns0:Window><ns0:CompanyBasic id=\"ID4\" xsi:type=\"ns0:CompanyBasic\"><PNo xsi:type=\"xsd:int\">1003624526</PNo><adProtection xsi:type=\"xsd:int\">0</adProtection><companyId xsi:type=\"xsd:int\">724796</companyId><companyType xsi:type=\"xsd:string\">VI</companyType><cvrNo xsi:type=\"xsd:int\">50574911</cvrNo><district xsi:type=\"xsd:string\">Taastrup</district><fax xsi:type=\"xsd:string\" xsi:nil=\"1\"/><officialName xsi:type=\"xsd:string\">IKEA A/S</officialName><phone xsi:type=\"xsd:string\">70150808</phone><street xsi:type=\"xsd:string\">M\xC3\xA5rk\xC3\xA6rvej 15</street><tdcId xsi:type=\"xsd:int\">100311293</tdcId><zipCode xsi:type=\"xsd:int\">2630</zipCode></ns0:CompanyBasic><ns0:CompanyBasic id=\"ID5\" xsi:type=\"ns0:CompanyBasic\"><PNo xsi:type=\"xsd:int\">1003624599</PNo><adProtection xsi:type=\"xsd:int\">0</adProtection><companyId xsi:type=\"xsd:int\">203813</companyId><companyType xsi:type=\"xsd:string\">PL</companyType><cvrNo xsi:type=\"xsd:int\">50574911</cvrNo><district xsi:type=\"xsd:string\">Gentofte</district><fax xsi:type=\"xsd:string\">43590089</fax><officialName xsi:type=\"xsd:string\">Ikea A/S</officialName><phone xsi:type=\"xsd:string\">70150909</phone><street xsi:type=\"xsd:string\">Nybrovej 2</street><tdcId xsi:type=\"xsd:int\">200087382</tdcId><zipCode xsi:type=\"xsd:int\">2820</zipCode></ns0:CompanyBasic><ns0:CompanyBasic id=\"ID6\" xsi:type=\"ns0:CompanyBasic\"><PNo xsi:type=\"xsd:int\">1003624575</PNo><adProtection xsi:type=\"xsd:int\">0</adProtection><companyId xsi:type=\"xsd:int\">4437372</companyId><companyType xsi:type=\"xsd:string\">PL</companyType><cvrNo xsi:type=\"xsd:int\">50574911</cvrNo><district xsi:type=\"xsd:string\">Odense S\xC3\x98</district><fax xsi:type=\"xsd:string\" xsi:nil=\"1\"/><officialName xsi:type=\"xsd:string\">Ikea A/S</officialName><phone xsi:type=\"xsd:string\">70150909</phone><street xsi:type=\"xsd:string\">\xC3\x98rb\xC3\xA6kvej 91</street><tdcId xsi:type=\"xsd:int\">202666498</tdcId><zipCode xsi:type=\"xsd:int\">5220</zipCode></ns0:CompanyBasic><ns0:CompanyBasic id=\"ID7\" xsi:type=\"ns0:CompanyBasic\"><PNo xsi:type=\"xsd:int\">1015466592</PNo><adProtection xsi:type=\"xsd:int\">0</adProtection><companyId xsi:type=\"xsd:int\">4437373</companyId><companyType xsi:type=\"xsd:string\">PL</companyType><cvrNo xsi:type=\"xsd:int\">50574911</cvrNo><district xsi:type=\"xsd:string\">Odense S\xC3\x98</district><fax xsi:type=\"xsd:string\" xsi:nil=\"1\"/><officialName xsi:type=\"xsd:string\">Ikea A/S</officialName><phone xsi:type=\"xsd:string\" xsi:nil=\"1\"/><street xsi:type=\"xsd:string\">\xC3\x98rb\xC3\xA6kvej 91</street><tdcId xsi:type=\"xsd:int\">202666499</tdcId><zipCode xsi:type=\"xsd:int\">5220</zipCode></ns0:CompanyBasic><ns0:CompanyBasic id=\"ID8\" xsi:type=\"ns0:CompanyBasic\"><PNo xsi:type=\"xsd:int\">1003624563</PNo><adProtection xsi:type=\"xsd:int\">0</adProtection><companyId xsi:type=\"xsd:int\">203811</companyId><companyType xsi:type=\"xsd:string\">PL</companyType><cvrNo xsi:type=\"xsd:int\">50574911</cvrNo><district xsi:type=\"xsd:string\">Aarhus N</district><fax xsi:type=\"xsd:string\">86785585</fax><officialName xsi:type=\"xsd:string\">Ikea A/S</officialName><phone xsi:type=\"xsd:string\">70150909</phone><street xsi:type=\"xsd:string\">Graham Bells Vej 9</street><tdcId xsi:type=\"xsd:int\">200087380</tdcId><zipCode xsi:type=\"xsd:int\">8200</zipCode></ns0:CompanyBasic><ns0:CompanyBasic id=\"ID9\" xsi:type=\"ns0:CompanyBasic\"><PNo xsi:type=\"xsd:int\">1015543953</PNo><adProtection xsi:type=\"xsd:int\">0</adProtection><companyId xsi:type=\"xsd:int\">4244151</companyId><companyType xsi:type=\"xsd:string\">PL</companyType><cvrNo xsi:type=\"xsd:int\">50574911</cvrNo><district xsi:type=\"xsd:string\">Aalborg SV</district><fax xsi:type=\"xsd:string\" xsi:nil=\"1\"/><officialName xsi:type=\"xsd:string\">Ikea A/S</officialName><phone xsi:type=\"xsd:string\">98114908</phone><street xsi:type=\"xsd:string\">Krebsen 40</street><tdcId xsi:type=\"xsd:int\">202580625</tdcId><zipCode xsi:type=\"xsd:int\">9200</zipCode></ns0:CompanyBasic><ns0:CompanyBasic id=\"ID10\" xsi:type=\"ns0:CompanyBasic\"><PNo xsi:type=\"xsd:int\">1001951057</PNo><adProtection xsi:type=\"xsd:int\">0</adProtection><companyId xsi:type=\"xsd:int\">3569747</companyId><companyType xsi:type=\"xsd:string\">PL</companyType><cvrNo xsi:type=\"xsd:int\">50574911</cvrNo><district xsi:type=\"xsd:string\">Taastrup</district><fax xsi:type=\"xsd:string\" xsi:nil=\"1\"/><officialName xsi:type=\"xsd:string\">Ikea A/S Ejendomme</officialName><phone xsi:type=\"xsd:string\" xsi:nil=\"1\"/><street xsi:type=\"xsd:string\">M\xC3\xA5rk\xC3\xA6rvej 15</street><tdcId xsi:type=\"xsd:int\">201866959</tdcId><zipCode xsi:type=\"xsd:int\">2630</zipCode></ns0:CompanyBasic><ns0:CompanyBasic id=\"ID11\" xsi:type=\"ns0:CompanyBasic\"><PNo xsi:type=\"xsd:int\">1010138554</PNo><adProtection xsi:type=\"xsd:int\">0</adProtection><companyId xsi:type=\"xsd:int\">162848074</companyId><companyType xsi:type=\"xsd:string\">VI</companyType><cvrNo xsi:type=\"xsd:int\">27378560</cvrNo><district xsi:type=\"xsd:string\">Taastrup</district><fax xsi:type=\"xsd:string\" xsi:nil=\"1\"/><officialName xsi:type=\"xsd:string\">Ikea Ejendomme ApS</officialName><phone xsi:type=\"xsd:string\">70150909</phone><street xsi:type=\"xsd:string\">M\xC3\xA5rk\xC3\xA6rvej 15</street><tdcId xsi:type=\"xsd:int\">101897006</tdcId><zipCode xsi:type=\"xsd:int\">2630</zipCode></ns0:CompanyBasic><ns0:CompanyBasic id=\"ID12\" xsi:type=\"ns0:CompanyBasic\"><PNo xsi:type=\"xsd:int\">1012507026</PNo><adProtection xsi:type=\"xsd:int\">0</adProtection><companyId xsi:type=\"xsd:int\">162910733</companyId><companyType xsi:type=\"xsd:string\">VI</companyType><cvrNo xsi:type=\"xsd:int\">29776210</cvrNo><district xsi:type=\"xsd:string\">Taastrup</district><fax xsi:type=\"xsd:string\" xsi:nil=\"1\"/><officialName xsi:type=\"xsd:string\">Ikea Gentofte ApS</officialName><phone xsi:type=\"xsd:string\" xsi:nil=\"1\"/><street xsi:type=\"xsd:string\">M\xC3\xA5rk\xC3\xA6rvej 15</street><tdcId xsi:type=\"xsd:int\">202158429</tdcId><zipCode xsi:type=\"xsd:int\">2630</zipCode></ns0:CompanyBasic><ns0:CompanyBasic id=\"ID13\" xsi:type=\"ns0:CompanyBasic\"><PNo xsi:type=\"xsd:int\">0</PNo><adProtection xsi:type=\"xsd:int\">0</adProtection><companyId xsi:type=\"xsd:int\">901351</companyId><companyType xsi:type=\"xsd:string\">PL</companyType><cvrNo xsi:type=\"xsd:int\">20451874</cvrNo><district xsi:type=\"xsd:string\">Taastrup</district><fax xsi:type=\"xsd:string\">43590389</fax><officialName xsi:type=\"xsd:string\">Ikea Handels Ag</officialName><phone xsi:type=\"xsd:string\">70150909</phone><street xsi:type=\"xsd:string\">M\xC3\xA5rk\xC3\xA6rvej 15</street><tdcId xsi:type=\"xsd:int\">100406521</tdcId><zipCode xsi:type=\"xsd:int\">2630</zipCode></ns0:CompanyBasic></env:Body></env:Envelope>"
     http_version: "1.1"
-  recorded_at: Tue, 08 May 2012 09:46:49 GMT
+  recorded_at: Tue, 08 May 2012 09:53:48 GMT
 - request: 
     method: get
     uri: http://service.nnerhverv.dk/nne-ws/3.1/NNE?WSDL
@@ -715,16 +716,16 @@ http_interactions:
       code: 200
       message: OK
     headers: 
+      server: 
+      - Microsoft-IIS/6.0
       x-powered-by: 
       - ASP.NET
       date: 
-      - Tue, 08 May 2012 09:46:48 GMT
-      content-type: 
-      - text/xml
-      server: 
-      - Microsoft-IIS/6.0
+      - Tue, 08 May 2012 09:53:47 GMT
       connection: 
       - close
+      content-type: 
+      - text/xml
     body: 
       string: |-
         <?xml version="1.0" encoding="UTF-8"?>
@@ -1367,12 +1368,12 @@ http_interactions:
             <port name="NNE_PortTypePort" binding="tns:NNE_PortTypeBinding">
               <soap:address xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" location="http://service.nnerhverv.dk:80/nne-ws/3.1/NNE"/></port></service></definitions>
     http_version: "1.1"
-  recorded_at: Tue, 08 May 2012 09:46:49 GMT
+  recorded_at: Tue, 08 May 2012 09:53:48 GMT
 - request: 
     method: post
     uri: http://service.nnerhverv.dk/nne-ws/3.1/NNE
     body: 
-      string: <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wsdl="http://com.stibo.net/nne/3.1/NNE" xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ins0="http://com.stibo.net/nne/3.1/Types/NNE"><env:Body><wsdl:fetchCompanyOwnership env:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"><int_1 xsi:type="xsd:int">100311293</int_1><int_2 xsi:type="xsd:int">0</int_2><String_3 xsi:type="xsd:string"></String_3><String_4 xsi:type="xsd:string"></String_4></wsdl:fetchCompanyOwnership></env:Body></env:Envelope>
+      string: <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:wsdl="http://com.stibo.net/nne/3.1/NNE" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ins0="http://com.stibo.net/nne/3.1/Types/NNE"><env:Body><wsdl:fetchCompanyOwnership env:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"><int_1 xsi:type="xsd:int">100311293</int_1><int_2 xsi:type="xsd:int">0</int_2><String_3 xsi:type="xsd:string"></String_3><String_4 xsi:type="xsd:string"></String_4></wsdl:fetchCompanyOwnership></env:Body></env:Envelope>
     headers: 
       accept: 
       - "*/*"
@@ -1387,22 +1388,21 @@ http_interactions:
       code: 200
       message: OK
     headers: 
+      server: 
+      - Microsoft-IIS/6.0
       x-powered-by: 
       - ASP.NET
       date: 
-      - Tue, 08 May 2012 09:46:49 GMT
+      - Tue, 08 May 2012 09:53:47 GMT
+      connection: 
+      - close
       content-type: 
       - text/xml; charset="utf-8"
       soapaction: 
       - "\"\""
-      server: 
-      - Microsoft-IIS/6.0
-      connection: 
-      - close
     body: 
       string: |-
         <?xml version="1.0" encoding="UTF-8"?>
         <env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:ns0="http://com.stibo.net/nne/3.1/Types/NNE" env:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"><env:Body><ans1:fetchCompanyOwnershipResponse xmlns:ans1="http://com.stibo.net/nne/3.1/NNE"><result href="#ID1"/></ans1:fetchCompanyOwnershipResponse><ns0:ArrayOfOwnership id="ID1" xsi:type="enc:Array" enc:arrayType="ns0:Ownership[1]"><item href="#ID2"/></ns0:ArrayOfOwnership><ns0:Ownership id="ID2" xsi:type="ns0:Ownership"><country xsi:type="xsd:string">Holland</country><name xsi:type="xsd:string">Ingka Holding Scandinavia Bv</name><share xsi:type="xsd:string">100            </share><tdcId xsi:type="xsd:int">0</tdcId></ns0:Ownership></env:Body></env:Envelope>
     http_version: "1.1"
-  recorded_at: Tue, 08 May 2012 09:46:50 GMT
-recorded_with: VCR 2.1.1
+  recorded_at: Tue, 08 May 2012 09:53:48 GMT
