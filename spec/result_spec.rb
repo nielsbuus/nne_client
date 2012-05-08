@@ -47,7 +47,7 @@ describe NNEClient::Result do
     its(:status_text)         { should == 'Selskabet er i normal drift.' }
   end
 
-  context "with trades" do
+  context "with a single trade" do
     around(:each) do |example|
       VCR.use_cassette('result_trades', :match_requests_on => [:soap_body_matcher]) do
         example.run
@@ -62,6 +62,32 @@ describe NNEClient::Result do
           :trade_code => '620200'
         )
       ]
+    }
+  end
+
+  context "with multiple trades" do
+    around(:each) do |example|
+      VCR.use_cassette('result_multiple_trades', :match_requests_on => [:soap_body_matcher]) do
+        example.run
+      end
+    end
+
+    subject do NNEClient.search(:name => 'Dansk Supermarked').to_a[5] end
+
+    its(:trades) {
+      should include NNEClient::Trade.new(
+        :primary => true,
+        :trade => "Anden detailhandel fra ikke-specialiserede forretninger",
+        :trade_code => "471900"
+      )
+    }
+
+    its(:trades) {
+      should include NNEClient::Trade.new(
+        :primary => false,
+        :trade => "Discountforretninger",
+        :trade_code => "471130"
+      )
     }
   end
 
