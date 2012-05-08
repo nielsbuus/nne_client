@@ -8,10 +8,10 @@ require "nne_client/query"
 require "nne_client/question"
 require "nne_client/result"
 require "nne_client/result_set"
-require "nne_client/finance"
-require "nne_client/ownership"
-require "nne_client/subsidiary"
-require "nne_client/trade"
+require "nne_client/record_types/finance"
+require "nne_client/record_types/ownership"
+require "nne_client/record_types/subsidiary"
+require "nne_client/record_types/trade"
 
 module NNEClient
   extend self
