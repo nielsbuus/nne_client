@@ -5,7 +5,7 @@ module NNEClient
     def initialize(ownership_hash)
       @share = ownership_hash[:share].strip
       @name = ownership_hash[:name]
-      @country = ownership_hash[:country]
+      @country = ownership_hash[:country] unless ownership_hash[:country].kind_of?(Hash)
     end
 
     def ==(other)
