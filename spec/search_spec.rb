@@ -17,4 +17,16 @@ describe NNEClient::Search do
       end
     end
   end
+
+  describe 'with an access key' do
+    before(:each) do
+      NNEClient.configure { |config| config.access_key = 'some key' }
+    end
+
+    it 'finds the company' do
+      soap_vcr('search_lokalebasen_with_access_key') do
+        NNEClient::Search.new(:name => 'Lokalebasen').result_set.first.official_name.should == 'Lokalebasen.DK A/S'
+      end
+    end
+  end
 end

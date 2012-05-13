@@ -18,6 +18,12 @@ Or install it yourself as:
 
 ## Usage
 
+If you need to provide an access key configure NNE Client with:
+
+    NNEClient.configure do |config|
+      config.access_key = 'some key'
+    end
+
 Searching for a company:
 
     result_set = NNEClient.search(:name => 'Lokalebasen')

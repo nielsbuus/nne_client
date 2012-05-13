@@ -11,7 +11,7 @@ module NNEClient
       tag(:int_2, hits_per_page, :int)
       tag(:int_3, wanted_page_number, :int)
       tag(:int_4, include_ad_protected, :int)
-      tag(:String_5, nil, :string)
+      tag(:String_5, NNEClient.config.access_key, :string)
     end
 
     private

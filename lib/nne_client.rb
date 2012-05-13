@@ -1,3 +1,4 @@
+require 'config_newton'
 require 'savon'
 require "nne_client/version"
 require "nne_client/result_attributes"
@@ -16,6 +17,9 @@ require "nne_client/record_types/trade"
 # Namespace for the library
 module NNEClient
   extend self
+  include ConfigNewton
+
+  config :access_key
 
   # Where users start the interaction with the library.
   #

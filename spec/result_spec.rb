@@ -33,18 +33,37 @@ describe NNEClient::Result do
   its(:ad_protection) { should == result_hash[:ad_protection] }
 
   context "with extended info" do
-    around(:each) do |example|
-      soap_vcr('result_extended_info') do
-        example.run
+    context "with an access key" do
+      around(:each) do |example|
+        NNEClient.configure { |config| config.access_key = 'some key' }
+        soap_vcr('result_extended_info_with_access_key') do
+          example.run
+        end
+        NNEClient.configure { |config| config.access_key = nil }
       end
+
+      its(:email)               { should == 'jacob@incremental.dk' }
+      its(:homepage)            { should be_nil }
+      its(:founded_year)        { should == '2009' }
+      its(:number_of_employees) { should == '0' }
+      its(:tdf_name)            { should == 'Incremental' }
+      its(:status_text)         { should == 'Selskabet er i normal drift.' }
     end
 
-    its(:email)               { should == 'jacob@incremental.dk' }
-    its(:homepage)            { should be_nil }
-    its(:founded_year)        { should == '2009' }
-    its(:number_of_employees) { should == '0' }
-    its(:tdf_name)            { should == 'Incremental' }
-    its(:status_text)         { should == 'Selskabet er i normal drift.' }
+    context "without an access key" do
+      around(:each) do |example|
+        soap_vcr('result_extended_info') do
+          example.run
+        end
+      end
+
+      its(:email)               { should == 'jacob@incremental.dk' }
+      its(:homepage)            { should be_nil }
+      its(:founded_year)        { should == '2009' }
+      its(:number_of_employees) { should == '0' }
+      its(:tdf_name)            { should == 'Incremental' }
+      its(:status_text)         { should == 'Selskabet er i normal drift.' }
+    end
   end
 
   context "with a single trade" do
