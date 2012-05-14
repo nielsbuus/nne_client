@@ -53,6 +53,14 @@ describe NNEClient::Result do
     end
   end
 
+  it "raises CompanyMissing if tdc_id is unknown" do
+    soap_vcr('result_fetching_missing_company') do
+      expect {
+        NNEClient::Result.new(:tdc_id => '202177618').official_name
+      }.to raise_error(NNEClient::CompanyMissing)
+    end
+  end
+
   context 'with only tdc_id' do
     around(:each) do |example|
       soap_vcr('result_fetching_basic_attributes') do

@@ -149,7 +149,8 @@ module NNEClient
     def basic_attribute(attribute)
       unless @basic_attributes.has_key?(attribute)
         unless @basic_result
-          @basic_result = Search.new(:tdcId => tdc_id).result_set.first
+          @basic_result = Search.new(:tdcId => tdc_id).result_set.first or
+            raise NNEClient::CompanyMissing
         end
         @basic_attributes[attribute] = @basic_result.send(attribute)
       end

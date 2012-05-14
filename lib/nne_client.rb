@@ -21,6 +21,8 @@ module NNEClient
   extend self
   include ConfigNewton
 
+  class CompanyMissing < RuntimeError; end
+
   config :access_key
 
   # Where users start the interaction with the library.
