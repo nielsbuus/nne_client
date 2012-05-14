@@ -18,6 +18,9 @@ module NNEClient
       rescue HTTPClient::ReceiveTimeoutError => e
         retries -= 1
         retry if retries > 0
+      rescue Net::HTTPRequestTimeOut => e
+        retries -= 1
+        retry if retries > 0
       end
     end
 
