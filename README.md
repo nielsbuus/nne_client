@@ -16,6 +16,10 @@ Or install it yourself as:
 
     $ gem install nne_client
 
+## Warning
+
+NNEClient only works with the Net/HTTP and will force HTTPI to use this.
+
 ## Usage
 
 If you need to provide an access key configure NNE Client with:
