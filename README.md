@@ -70,6 +70,19 @@ Additionally further information can be fetched through the methods:
     subsidiaries
     finances
 
+## Configuration
+
+NNEClient is based on Savon and HTTPI. You may use these libraries to control
+logging. For example:
+
+    HTTPI.log = false
+
+    Savon.configure do |config|
+      config.log = false            # disable logging
+      config.log_level = :info      # changing the log level
+      config.logger = Rails.logger  # using the Rails logger
+    end
+
 ## Contributing
 
 1. Fork it
