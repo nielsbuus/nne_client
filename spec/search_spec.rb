@@ -26,6 +26,22 @@ describe NNEClient::Search do
     end
   end
 
+  describe 'asking for more results' do
+    subject do
+      soap_vcr('search_lokale_100') do
+        NNEClient::Search.new(:name => 'Lokale', :hitsPerPage => 100).result_set
+      end
+    end
+
+    it 'finds the company' do
+      subject.first.official_name.should == 'Andelsselskabet De Lokale Boliger'
+    end
+
+    it 'fetches 100 records' do
+      subject.count.should == 100
+    end
+  end
+
   describe 'with an access key' do
     before(:each) do
       NNEClient.configure { |config| config.access_key = 'some key' }
