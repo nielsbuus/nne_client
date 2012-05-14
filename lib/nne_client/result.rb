@@ -153,6 +153,7 @@ module NNEClient
         end
         @basic_attributes[attribute] = @basic_result.send(attribute)
       end
+      return nil if @basic_attributes[attribute].kind_of?(Hash)
       @basic_attributes[attribute]
     end
 

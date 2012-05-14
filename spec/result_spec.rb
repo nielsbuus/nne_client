@@ -40,6 +40,13 @@ describe NNEClient::Result do
     ].uniq.size.should == 1
   end
 
+  it "returns nil for a basic attribute that's a hash" do
+    result = NNEClient::Result.new(
+      result_hash.merge(:phone => {"@xsi:type" => 'xsd:string'})
+    )
+    result.phone.should be_nil
+  end
+
   it "returns nil for an extended attribute that's a hash" do
     soap_vcr('result_fetching_ext_attributes_email_hash') do
       NNEClient.search(:tdcId => '101953776').first.email.should be_nil
