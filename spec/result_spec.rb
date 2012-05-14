@@ -31,6 +31,26 @@ describe NNEClient::Result do
   its(:street)        { should == result_hash[:street] }
   its(:zip_code)      { should == result_hash[:zip_code] }
   its(:ad_protection) { should == result_hash[:ad_protection] }
+  it { should == NNEClient::Result.new(:tdc_id => '202541543') }
+
+  context 'with only tdc_id' do
+    around(:each) do |example|
+      soap_vcr('result_fetching_basic_attributes') do
+        example.run
+      end
+    end
+
+    subject { NNEClient::Result.new(:tdc_id => '202541543') }
+
+    its(:cvr_no)        { should == result_hash[:cvr_no] }
+    its(:p_no)          { should == result_hash[:p_no] }
+    its(:district)      { should == result_hash[:district] }
+    its(:official_name) { should == result_hash[:official_name] }
+    its(:phone)         { should == result_hash[:phone] }
+    its(:street)        { should == result_hash[:street] }
+    its(:zip_code)      { should == result_hash[:zip_code] }
+    its(:ad_protection) { should == result_hash[:ad_protection] }
+  end
 
   context "with extended info" do
     context "with an access key" do

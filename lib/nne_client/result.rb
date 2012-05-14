@@ -4,6 +4,10 @@ module NNEClient
   # be seen roughly as an NNE CompanyBasic object. It provides transparent
   # loading of attributes from the NNE Company object. It also provides methods
   # for navigating the API further.
+  #
+  # The Result can be instantiated with either a full result hash from an API
+  # query or with just a tdc_id in which case the attributes will be lazy loaded
+  # from the API.
   class Result
     class << self
       # Basic attributes are attributes returned by NNE on the
@@ -12,7 +16,7 @@ module NNEClient
       # @!visibility private
       def basic_attributes(*attrs)
         attrs.each do |attr|
-          define_method(attr) { @result_hash[attr] }
+          define_method(attr) { basic_attribute(attr) }
         end
       end
 
@@ -28,8 +32,12 @@ module NNEClient
     end
 
     # @!visibility private
+    attr_reader :tdc_id
+
+    # @!visibility private
     def initialize(result_hash)
-      @result_hash = result_hash
+      @basic_attributes = result_hash
+      @tdc_id = result_hash[:tdc_id]
     end
 
     # @!attribute [r] cvr_no
@@ -108,6 +116,10 @@ module NNEClient
       end
     end
 
+    def ==(other)
+      other.tdc_id == tdc_id
+    end
+
     private
 
     def fetch_associates
@@ -126,16 +138,22 @@ module NNEClient
       Fetch.new(tdc_id, 'fetchCompanyOwnership').result_set.to_hash[:ownership] || []
     end
 
+    def basic_attribute(attribute)
+      unless @basic_attributes.has_key?(attribute)
+        unless @basic_result
+          @basic_result = Search.new(:tdcId => tdc_id).result_set.first
+        end
+        @basic_attributes[attribute] = @basic_result.send(attribute)
+      end
+      @basic_attributes[attribute]
+    end
+
     def extended_attributes
       @extended_attributes ||= fetch_extended_attributes
     end
 
     def fetch_extended_attributes
       Fetch.new(tdc_id, 'fetchCompany').result_set.to_hash[:company]
-    end
-
-    def tdc_id
-      @result_hash[:tdc_id]
     end
   end
 end
