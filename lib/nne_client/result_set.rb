@@ -22,7 +22,15 @@ module NNEClient
       @result.to_hash
     end
 
+    def total
+      window[:total].to_i
+    end
+
     private
+
+    def window
+      to_hash[:window]
+    end
 
     def company_basic
       if to_hash[:company_basic].kind_of?(Hash)

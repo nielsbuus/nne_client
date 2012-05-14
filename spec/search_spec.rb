@@ -11,10 +11,18 @@ describe NNEClient::Search do
   end
 
   describe 'a search with multiple matches' do
-    it 'finds the company' do
+    subject do
       soap_vcr('search_lokale') do
-        NNEClient::Search.new(:name => 'Lokale').result_set.first.official_name.should == 'Andelsselskabet De Lokale Boliger'
+        NNEClient::Search.new(:name => 'Lokale').result_set
       end
+    end
+
+    it 'finds the company' do
+      subject.first.official_name.should == 'Andelsselskabet De Lokale Boliger'
+    end
+
+    it 'knows the number of matches' do
+      subject.total.should == 124
     end
   end
 
