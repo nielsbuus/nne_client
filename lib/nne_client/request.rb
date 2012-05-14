@@ -3,23 +3,33 @@ module NNEClient
   class Request
     class << self
       def execute(command, &block)
-        new(command, &block).result_set
+        new(command).result_set(&block)
       end
     end
 
-    def initialize(command, &block)
-      @result = client.request('wsdl', command, request_attributes) do
+    def initialize(command)
+      @command = command
+    end
+
+    def result_set(&block)
+      retries = 3
+      begin
+        ResultSet.new(perform_request(&block))
+      rescue HTTPClient::ReceiveTimeoutError => e
+        retries -= 1
+        retry if retries > 0
+      end
+    end
+
+    private
+
+    def perform_request(&block)
+      client.request('wsdl', @command, request_attributes) do
         soap.body do |xml|
           yield xml
         end
       end
     end
-
-    def result_set
-      ResultSet.new(@result)
-    end
-
-    private
 
     def request_attributes
       { "env:encodingStyle" => "http://schemas.xmlsoap.org/soap/encoding/" }
