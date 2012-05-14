@@ -36,7 +36,7 @@ module NNEClient
       if to_hash[:company_basic].kind_of?(Hash)
         [to_hash[:company_basic]]
       else
-        to_hash[:company_basic]
+        to_hash[:company_basic] || []
       end
     end
   end

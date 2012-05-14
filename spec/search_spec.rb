@@ -42,6 +42,28 @@ describe NNEClient::Search do
     end
   end
 
+  describe "searching for something non existent" do
+    subject do
+      soap_vcr('search_for_noise') do
+        NNEClient::Search.new(:name => 'asdfasdfasdf').result_set
+      end
+    end
+
+    it 'has a total of 0 results' do
+      subject.total.should == 0
+    end
+
+    it 'fetches 0 records' do
+      subject.count.should == 0
+    end
+
+    it 'can iterate' do
+      expect { |block|
+        subject.each(&block)
+      }.not_to yield_control
+    end
+  end
+
   describe 'with an access key' do
     before(:each) do
       NNEClient.configure { |config| config.access_key = 'some key' }
