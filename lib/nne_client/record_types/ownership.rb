@@ -17,5 +17,9 @@ module NNEClient
         name == other.name &&
         country == other.country
     end
+
+    def company
+      Result.new(:tdc_id => @hash[:tdc_id])
+    end
   end
 end

@@ -6,7 +6,7 @@ describe NNEClient::Ownership do
       :country     => "Holland",
       :"@xsi:type" => "ns0:Ownership",
       :share       => "100            ",
-      :tdc_id      => "0",
+      :tdc_id      => "123",
       :@id         => "ID2",
       :name        => "Ingka Holding Scandinavia Bv"
     }
@@ -19,4 +19,16 @@ describe NNEClient::Ownership do
   its(:name)    { should == ownership_hash[:name] }
   its(:country) { should == ownership_hash[:country] }
 
+  describe "#company" do
+    let(:result)     { double(:result) }
+
+    it "knows how to fetch company information" do
+      NNEClient::Result.should_receive(:new).with(:tdc_id => '123') { result }
+      subject.company
+    end
+    it "knows how to fetch company information" do
+      NNEClient::Result.stub(:new) { result }
+      subject.company.should == result
+    end
+  end
 end
