@@ -157,7 +157,9 @@ module NNEClient
     end
 
     def extended_attributes
-      @extended_attributes ||= fetch_extended_attributes
+      @extended_attributes ||= fetch_extended_attributes.reject{ |k,v|
+        v.kind_of?(Hash)
+      }
     end
 
     def fetch_extended_attributes
