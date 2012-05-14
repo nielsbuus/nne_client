@@ -29,7 +29,7 @@ describe NNEClient::Search do
   describe 'asking for more results' do
     subject do
       soap_vcr('search_lokale_100') do
-        NNEClient::Search.new(:name => 'Lokale', :hitsPerPage => 100).result_set
+        NNEClient::Search.new(:name => 'Lokale', :hits_per_page => 100).result_set
       end
     end
 

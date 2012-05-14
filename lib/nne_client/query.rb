@@ -17,15 +17,15 @@ module NNEClient
     private
 
     def include_ad_protected
-      @query_hash[:includeAdProtected] ? 1 : 0
+      @query_hash[:include_ad_protected] ? 1 : 0
     end
 
     def hits_per_page
-      @query_hash[:hitsPerPage] || 10
+      @query_hash[:hits_per_page] || 10
     end
 
     def wanted_page_number
-      @query_hash[:wantedPageNumber] || 1
+      @query_hash[:wanted_page_number] || 1
     end
 
     def tag(attribute, value, type)
