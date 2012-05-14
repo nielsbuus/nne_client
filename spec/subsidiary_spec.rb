@@ -20,17 +20,15 @@ describe NNEClient::Subsidiary do
   its(:country) { should == subsidiary_hash[:country] }
 
   describe "#company" do
-    let(:company)    { double(:company) }
-    let(:result_set) { double(:result_set, :first => company) }
-    let(:search)     { double(:search, :result_set => result_set) }
+    let(:result)     { double(:result) }
 
     it "knows how to fetch company information" do
-      NNEClient::Search.should_receive(:new).with(:tdcId => '123') { search }
+      NNEClient::Result.should_receive(:new).with(:tdc_id => '123') { result }
       subject.company
     end
     it "knows how to fetch company information" do
-      NNEClient::Search.stub(:new) { search }
-      subject.company.should == company
+      NNEClient::Result.stub(:new) { result }
+      subject.company.should == result
     end
   end
 

@@ -19,7 +19,7 @@ module NNEClient
     end
 
     def company
-      Search.new(:tdcId => @hash[:tdc_id]).result_set.first
+      Result.new(:tdc_id => @hash[:tdc_id])
     end
   end
 end
