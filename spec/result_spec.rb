@@ -268,6 +268,13 @@ describe NNEClient::Result do
     end
   end
 
+  it "will convert additional_names to an array" do
+    soap_vcr('result_additional_names_single') do
+      result = NNEClient::Result.new(:tdc_id => '101952996')
+      result.additional_names.should == [ 'Eb Flytning ApS' ]
+    end
+  end
+
   it "is an empty array if no additinal names present" do
     soap_vcr('result_names_empty') do
       result = NNEClient::Result.new(:official_name => 'Name', :tdc_id => '202541543')
