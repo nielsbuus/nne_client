@@ -120,6 +120,14 @@ module NNEClient
       other.tdc_id == tdc_id
     end
 
+    def hash
+      tdc_id.hash
+    end
+
+    def eql?(other)
+      hash == other.hash
+    end
+
     private
 
     def fetch_associates

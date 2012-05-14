@@ -33,6 +33,13 @@ describe NNEClient::Result do
   its(:ad_protection) { should == result_hash[:ad_protection] }
   it { should == NNEClient::Result.new(:tdc_id => '202541543') }
 
+  it "is unique based on tdc_id" do
+    [
+      NNEClient::Result.new(:tdc_id => '202541543'),
+      subject
+    ].uniq.size.should == 1
+  end
+
   context 'with only tdc_id' do
     around(:each) do |example|
       soap_vcr('result_fetching_basic_attributes') do
