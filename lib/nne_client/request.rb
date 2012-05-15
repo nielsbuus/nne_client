@@ -28,9 +28,11 @@ module NNEClient
 
     def perform_request(&block)
       client.request('wsdl', @command, request_attributes) do
-        soap.body do |xml|
-          yield xml
-        end
+        str = StringIO.new
+        builder = Builder::XmlMarkup.new(:target => str)
+        yield builder
+        str.rewind
+        soap.body = str.read
       end
     end
 
