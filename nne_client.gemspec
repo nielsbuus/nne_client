@@ -5,8 +5,8 @@ require 'nne_client/version'
 Gem::Specification.new do |gem|
   gem.authors       = ["Jacob Atzen"]
   gem.email         = ["jacob@incremental.dk"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
+  gem.description   = %q{Client library for the Navne & Numre Erhverv SOAP service}
+  gem.summary       = %q{A small library easing integration with NNE}
   gem.homepage      = ""
 
   gem.files         = `git ls-files`.split($\)
