@@ -94,7 +94,7 @@ describe NNEClient::Result do
       its(:homepage)            { should be_nil }
       its(:founded_year)        { should == '2009' }
       its(:number_of_employees) { should == '0' }
-      its(:tdf_name)            { should == 'Incremental' }
+      its(:tdf_name)            { should == 'Jacob Atzen' }
       its(:status_text)         { should == 'Selskabet er i normal drift.' }
     end
 
@@ -109,7 +109,7 @@ describe NNEClient::Result do
       its(:homepage)            { should be_nil }
       its(:founded_year)        { should == '2009' }
       its(:number_of_employees) { should == '0' }
-      its(:tdf_name)            { should == 'Incremental' }
+      its(:tdf_name)            { should == 'Jacob Atzen' }
       its(:status_text)         { should == 'Selskabet er i normal drift.' }
     end
   end
@@ -257,14 +257,17 @@ describe NNEClient::Result do
 
   it "knows all names" do
     soap_vcr('result_names') do
-      result = NNEClient::Result.new(:official_name => 'Name', :tdc_id => '100323228')
+      result = NNEClient::Result.new(:official_name => 'Name', :tdc_id => '100055268')
       result.additional_names.should == [
-        "Tv Holbæk A/S",
+        "A/S Kalundborg Folkeblad",
+        "Aktieselskabet Holbæk Amts Venstreblad",
         "A/S Trykkeriet Nordvest",
         "A/S Trykkeriet Nordvestsjælland",
+        "Havision A/S",
         "Nordvestsjællands Media Selskab A/S",
-        "Radio Holbæk A/S"
-      ]
+        "Radio Holbæk A/S",
+        "Tv Holbæk A/S"
+        ]
     end
   end
 
