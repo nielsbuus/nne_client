@@ -15,6 +15,9 @@ module NNEClient
       retries = 3
       begin
         ResultSet.new(perform_request(&block))
+      rescue HTTPClient::ReceiveTimeoutError => e
+        retries -= 1
+        retry if retries > 0
       rescue Net::HTTPRequestTimeOut => e
         retries -= 1
         retry if retries > 0
