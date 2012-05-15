@@ -45,12 +45,10 @@ module NNEClient
       { "env:encodingStyle" => "http://schemas.xmlsoap.org/soap/encoding/" }
     end
 
-    def wsdl_url
-      'http://service.nnerhverv.dk/nne-ws/3.1/NNE?WSDL'
-    end
-
     def client
-      @client ||= Savon::Client.new(wsdl_url)
+      @client ||= Savon::Client.new do
+        wsdl.document = File.expand_path("../../../wsdl/nne.wsdl", __FILE__)
+      end
     end
   end
 end
