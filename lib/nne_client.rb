@@ -14,8 +14,6 @@ require "nne_client/record_types/ownership"
 require "nne_client/record_types/subsidiary"
 require "nne_client/record_types/trade"
 
-HTTPI.adapter = :net_http
-
 # Namespace for the library
 module NNEClient
   extend self
