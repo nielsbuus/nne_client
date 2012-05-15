@@ -25,11 +25,19 @@ module NNEClient
 
     def perform_request(&block)
       client.request('wsdl', @command, request_attributes) do
-        str = StringIO.new
-        builder = Builder::XmlMarkup.new(:target => str)
-        yield builder
-        str.rewind
-        soap.body = str.read
+        if false
+          # Savon 0.9.5 does not support this
+          soap.body do |xml|
+            yield xml
+          end
+        else
+          # So create a builder manually
+          str = StringIO.new
+          builder = Builder::XmlMarkup.new(:target => str)
+          yield builder
+          str.rewind
+          soap.body = str.read
+        end
       end
     end
 
