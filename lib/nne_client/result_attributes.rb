@@ -33,5 +33,14 @@ module NNEClient
         end
       end
     end
+
+    # Create a method that converts to float for each key listed in attrs
+    def float_attributes(*attrs)
+      attrs.each do |attribute|
+        define_method(attribute) do
+          @hash[attribute].to_f unless @hash[attribute].kind_of?(Hash)
+        end
+      end
+    end
   end
 end
