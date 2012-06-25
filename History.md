@@ -1,4 +1,9 @@
 
+0.0.3 / 2012-06-25 
+==================
+
+  * [BUGFIX] Result#trades is an empty array if no trades present for company
+
 0.0.2 / 2012-05-21 
 ==================
 
