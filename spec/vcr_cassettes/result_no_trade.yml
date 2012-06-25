@@ -1,0 +1,40 @@
+--- 
+recorded_with: VCR 2.1.1
+http_interactions: 
+- request: 
+    method: post
+    uri: http://service.nnerhverv.dk/nne-ws/3.1/NNE
+    body: 
+      string: <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ins0="http://com.stibo.net/nne/3.1/Types/NNE" xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:wsdl="http://com.stibo.net/nne/3.1/NNE"><env:Body><wsdl:fetchCompanyTrade env:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"><int_1 xsi:type="xsd:int">202355845</int_1><int_2 xsi:type="xsd:int">0</int_2><String_3 xsi:type="xsd:string"></String_3><String_4 xsi:type="xsd:string"></String_4></wsdl:fetchCompanyTrade></env:Body></env:Envelope>
+    headers: 
+      content-type: 
+      - text/xml;charset=UTF-8
+      accept: 
+      - "*/*"
+      soapaction: 
+      - "\"fetchCompanyTrade\""
+      content-length: 
+      - "614"
+  response: 
+    status: 
+      code: 200
+      message: OK
+    headers: 
+      content-type: 
+      - text/xml; charset="utf-8"
+      date: 
+      - Mon, 25 Jun 2012 14:00:40 GMT
+      x-powered-by: 
+      - ASP.NET
+      soapaction: 
+      - "\"\""
+      connection: 
+      - close
+      server: 
+      - Microsoft-IIS/6.0
+    body: 
+      string: |-
+        <?xml version="1.0" encoding="UTF-8"?>
+        <env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:ns0="http://com.stibo.net/nne/3.1/Types/NNE" env:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"><env:Body><ans1:fetchCompanyTradeResponse xmlns:ans1="http://com.stibo.net/nne/3.1/NNE"><result href="#ID1"/></ans1:fetchCompanyTradeResponse><ns0:ArrayOfTrade id="ID1" xsi:type="enc:Array" enc:arrayType="ns0:Trade[0]"/></env:Body></env:Envelope>
+    http_version: "1.1"
+  recorded_at: Mon, 25 Jun 2012 14:00:40 GMT

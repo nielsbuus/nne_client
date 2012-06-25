@@ -114,6 +114,14 @@ describe NNEClient::Result do
     end
   end
 
+  context "with no trades" do
+    it 'returns an empty array of trades' do
+      soap_vcr('result_no_trade') do
+        NNEClient::Result.new(:tdc_id => '202355845').trades.should == []
+      end
+    end
+  end
+
   context "with a single trade" do
     around(:each) do |example|
       soap_vcr('result_trades') do

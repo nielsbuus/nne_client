@@ -68,7 +68,7 @@ module NNEClient
 
     # List of trades
     def trades
-      trades = Fetch.new(tdc_id, 'fetchCompanyTrade').result_set.to_hash[:trade]
+      trades = Fetch.new(tdc_id, 'fetchCompanyTrade').result_set.to_hash[:trade] || []
       if trades.kind_of?(Hash)
         [Trade.new(trades)]
       else
