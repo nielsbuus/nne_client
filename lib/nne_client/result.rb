@@ -60,6 +60,10 @@ module NNEClient
     extended_attributes :email, :homepage, :founded_year,
                         :number_of_employees, :tdf_name, :status_text
 
+    def house_no
+      fetch_extended_attributes.fetch(:kvh, {}).fetch(:house_no, nil)
+    end
+
     # List of additional_names
     def additional_names
       result = Fetch.new(tdc_id, 'fetchCompanyAdditionalNames').result_set.to_hash
@@ -159,13 +163,13 @@ module NNEClient
     end
 
     def extended_attributes
-      @extended_attributes ||= fetch_extended_attributes.reject{ |k,v|
+      @extended_attributes ||= fetch_extended_attributes[:company].reject{ |k,v|
         v.kind_of?(Hash)
       }
     end
 
     def fetch_extended_attributes
-      Fetch.new(tdc_id, 'fetchCompany').result_set.to_hash[:company]
+      Fetch.new(tdc_id, 'fetchCompany').result_set.to_hash
     end
   end
 end

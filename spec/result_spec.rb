@@ -96,6 +96,7 @@ describe NNEClient::Result do
       its(:number_of_employees) { should == '0' }
       its(:tdf_name)            { should == 'Jacob Atzen' }
       its(:status_text)         { should == 'Selskabet er i normal drift.' }
+      its(:house_no)            { should == '47' }
     end
 
     context "without an access key" do
