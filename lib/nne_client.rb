@@ -40,6 +40,14 @@ module NNEClient
     NNEClient::Search.new(query).result_set
   end
 
+  def with_timeout(seconds, &block)
+    old_timeout = NNEClient.config.http_read_timeout
+    NNEClient.config.http_read_timeout = seconds
+    yield
+  ensure
+    NNEClient.config.http_read_timeout = old_timeout
+  end
+
   def retry_timeouts(count, &block)
     retries = 3
     begin
