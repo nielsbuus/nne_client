@@ -49,6 +49,8 @@ module NNEClient
       @client ||= Savon::Client.new do
         wsdl.document = File.expand_path("../../../wsdl/nne.wsdl", __FILE__)
       end
+      @client.http.read_timeout = NNEClient.config.http_read_timeout
+      @client
     end
   end
 end

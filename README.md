@@ -79,6 +79,12 @@ logging. For example:
       config.logger = Rails.logger  # using the Rails logger
     end
 
+To set a 5 second expiration on reads from NNE do:
+
+    NNEClient.configure do |config|
+      config.http_read_timeout = 5
+    end
+
 ## Contributing
 
 1. Fork it

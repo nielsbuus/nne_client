@@ -22,6 +22,7 @@ module NNEClient
   class CompanyMissing < RuntimeError; end
 
   config :access_key
+  config :http_read_timeout
 
   # Where users start the interaction with the library.
   #
