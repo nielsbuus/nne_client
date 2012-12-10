@@ -39,4 +39,14 @@ module NNEClient
   def search(query)
     NNEClient::Search.new(query).result_set
   end
+
+  def retry_timeouts(count, &block)
+    retries = 3
+    begin
+      yield
+    rescue Timeout::Error => e
+      retries -= 1
+      retry if retries > 0
+    end
+  end
 end

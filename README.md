@@ -66,6 +66,16 @@ Additionally further information can be fetched through the methods:
     subsidiaries
     finances
 
+## Retry
+
+As NNE can sometimes be flaky it is possible to retry requests:
+
+    NNEClient.retry_timeouts(3) do
+      ...
+    end
+
+This will retry the block up to 3 times when timeouts occur.
+
 ## Configuration
 
 NNEClient is based on Savon and HTTPI. You may use these libraries to control

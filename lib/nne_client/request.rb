@@ -12,13 +12,7 @@ module NNEClient
     end
 
     def result_set(&block)
-      retries = 3
-      begin
-        ResultSet.new(perform_request(&block))
-      rescue Net::HTTPRequestTimeOut => e
-        retries -= 1
-        retry if retries > 0
-      end
+      ResultSet.new(perform_request(&block))
     end
 
     private
