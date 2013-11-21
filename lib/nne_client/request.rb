@@ -33,6 +33,9 @@ module NNEClient
       @client ||= Savon.client do |client|
         client.wsdl         File.expand_path("../../../wsdl/nne.wsdl", __FILE__)
         client.read_timeout NNEClient.config.http_read_timeout
+        client.log          !!NNEClient.config.log
+        client.log_level    NNEClient.config.log_level
+        client.logger       NNEClient.config.logger if NNEClient.config.logger
       end
       @client
     end
