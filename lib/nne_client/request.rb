@@ -18,32 +18,22 @@ module NNEClient
     private
 
     def perform_request(&block)
-      client.request('wsdl', @command, request_attributes) do
-        if false
-          # Savon 0.9.5 does not support this
-          soap.body do |xml|
-            yield xml
-          end
-        else
-          # So create a builder manually
-          str = StringIO.new
-          builder = Builder::XmlMarkup.new(:target => str)
-          yield builder
-          str.rewind
-          soap.body = str.read
-        end
-      end
+      str = StringIO.new
+      builder = Builder::XmlMarkup.new(:target => str)
+      yield builder
+      str.rewind
+      client.call(@command.to_sym, message: str.read, attributes: request_attributes)
     end
 
     def request_attributes
-      { "env:encodingStyle" => "http://schemas.xmlsoap.org/soap/encoding/" }
+      { :'env:encodingStyle' => "http://schemas.xmlsoap.org/soap/encoding/" }
     end
 
     def client
-      @client ||= Savon::Client.new do
-        wsdl.document = File.expand_path("../../../wsdl/nne.wsdl", __FILE__)
+      @client ||= Savon.client do |client|
+        client.wsdl         File.expand_path("../../../wsdl/nne.wsdl", __FILE__)
+        client.read_timeout NNEClient.config.http_read_timeout
       end
-      @client.http.read_timeout = NNEClient.config.http_read_timeout
       @client
     end
   end
