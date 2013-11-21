@@ -78,21 +78,22 @@ This will retry the block up to 3 times when timeouts occur.
 
 ## Configuration
 
-NNEClient is based on Savon and HTTPI. You may use these libraries to control
-logging. For example:
+NNEClient is based on Savon and HTTPI. To disable logging with HTTPI do:
 
     HTTPI.log = false
-
-    Savon.configure do |config|
-      config.log = false            # disable logging
-      config.log_level = :info      # changing the log level
-      config.logger = Rails.logger  # using the Rails logger
-    end
 
 To set a 5 second expiration on reads from NNE do:
 
     NNEClient.configure do |config|
       config.http_read_timeout = 5
+    end
+
+The NNEClient configuration can also be used to control logging:
+
+    NNEClient.configure do |config|
+      config.log = true             # enable logging (default: false)
+      config.log_level = :info      # change the log level (default: :info)
+      config.logger = Rails.logger  # use the Rails logger
     end
 
 Alternatively use `with_timeout`:
