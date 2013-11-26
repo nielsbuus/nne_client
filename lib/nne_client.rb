@@ -23,6 +23,9 @@ module NNEClient
 
   config :access_key
   config :http_read_timeout
+  config :log, :default => false
+  config :log_level, :default => :info
+  config :logger
 
   # Where users start the interaction with the library.
   #

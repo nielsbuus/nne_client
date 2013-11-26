@@ -66,13 +66,13 @@ module NNEClient
 
     # List of additional_names
     def additional_names
-      result = Fetch.new(tdc_id, 'fetchCompanyAdditionalNames').result_set.to_hash
+      result = Fetch.new(tdc_id, :fetch_company_additional_names).result_set.to_hash
       Array(result[:array_ofstring][:item])
     end
 
     # List of trades
     def trades
-      trades = Fetch.new(tdc_id, 'fetchCompanyTrade').result_set.to_hash[:trade] || []
+      trades = Fetch.new(tdc_id, :fetch_company_trade).result_set.to_hash[:trade] || []
       if trades.kind_of?(Hash)
         [Trade.new(trades)]
       else
@@ -135,19 +135,19 @@ module NNEClient
     private
 
     def fetch_associates
-      Fetch.new(tdc_id, 'fetchCompanyAssociates').result_set.to_hash[:subsidiary] || []
+      Fetch.new(tdc_id, :fetch_company_associates).result_set.to_hash[:subsidiary] || []
     end
 
     def fetch_finances
-      Fetch.new(tdc_id, 'fetchCompanyFinance').result_set.to_hash[:finance] || []
+      Fetch.new(tdc_id, :fetch_company_finance).result_set.to_hash[:finance] || []
     end
 
     def fetch_subsidiaries
-      Fetch.new(tdc_id, 'fetchCompanySubsidiaries').result_set.to_hash[:subsidiary] || []
+      Fetch.new(tdc_id, :fetch_company_subsidiaries).result_set.to_hash[:subsidiary] || []
     end
 
     def fetch_ownerships
-      Fetch.new(tdc_id, 'fetchCompanyOwnership').result_set.to_hash[:ownership] || []
+      Fetch.new(tdc_id, :fetch_company_ownership).result_set.to_hash[:ownership] || []
     end
 
     def basic_attribute(attribute)
@@ -169,7 +169,7 @@ module NNEClient
     end
 
     def fetch_extended_attributes
-      Fetch.new(tdc_id, 'fetchCompany').result_set.to_hash
+      Fetch.new(tdc_id, :fetch_company).result_set.to_hash
     end
   end
 end

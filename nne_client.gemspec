@@ -15,7 +15,7 @@ Gem::Specification.new do |gem|
   gem.name          = "nne_client"
   gem.require_paths = ["lib"]
   gem.version       = NNEClient::VERSION
-  gem.add_dependency('savon', '~> 0.9.5')
+  gem.add_dependency('savon', '~> 2.2')
   gem.add_dependency('config_newton', '~> 0.1.1')
   gem.add_development_dependency('vcr')
   gem.add_development_dependency('fakeweb')
